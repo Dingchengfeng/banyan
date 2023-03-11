@@ -1,0 +1,13 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.freemarker:freemarker'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation dependLibs.mybatisPlus
+    implementation dependLibs.mybatisPlusGenerator
+    compileOnly dependLibs.lombok
+    annotationProcessor dependLibs.lombok
+}
+
+bootJar {
+    enabled = true
+}

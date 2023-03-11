@@ -1,0 +1,16 @@
+rootProject.name = 'banyan'
+
+include 'banyan-admin'
+include 'banyan-generator'
+
+include 'banyan-common'
+include 'banyan-component:cache-component'
+include 'banyan-component:web-component'
+include 'banyan-component:db-component'
+include 'banyan-component:eventbus-component'
+include 'banyan-component:threadPool-component'
+include 'banyan-component:file-component'
+
+include 'banyan-demo'
+
+

@@ -1,0 +1,18 @@
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation dependLibs.guava
+    implementation dependLibs.fastjson
+    implementation dependLibs.hutoolCore
+    implementation dependLibs.jetbrainsAnnotations
+    implementation project(':banyan-component:threadPool-component')
+    compileOnly dependLibs.lombok
+    annotationProcessor dependLibs.lombok
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompileOnly dependLibs.lombok
+    testAnnotationProcessor dependLibs.lombok
+}
+
+test {
+    useJUnitPlatform()
+}

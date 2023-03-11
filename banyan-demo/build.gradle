@@ -1,0 +1,40 @@
+apply plugin: 'com.github.shalousun.smart-doc'
+apply plugin: "com.gorylenko.gradle-git-properties"
+
+smartdoc {
+    configFile = file("src/main/resources/smart-doc.json")
+    // exclude artifact
+    exclude 'org.springframework.boot:spring-boot-starter-tomcat'
+    // exclude artifact use pattern
+    exclude 'org.springframework.boot.*'
+    // 使用mybatis-plus的分页
+    include 'com.baomidou:mybatis-plus-extension'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'de.codecentric:spring-boot-admin-starter-client'
+    implementation project(':banyan-component:threadPool-component')
+    implementation project(':banyan-component:eventbus-component')
+    implementation project(':banyan-component:web-component')
+    implementation project(':banyan-component:db-component')
+    implementation project(':banyan-component:file-component')
+    implementation dependLibs.dynamicTpWebserver
+    implementation dependLibs.mybatisPlus
+    implementation dependLibs.openapiUI
+    compileOnly dependLibs.lombok
+    annotationProcessor dependLibs.lombok
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootJar {
+    enabled = true
+}
+
+springBoot {
+    buildInfo()
+}
+

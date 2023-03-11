@@ -1,0 +1,11 @@
+
+dependencies {
+    implementation project(':banyan-component:web-component')
+    implementation project(":banyan-component:db-component")
+    implementation dependLibs.springFileStorage
+    implementation dependLibs.minio
+    implementation dependLibs.fastjson
+    implementation dependLibs.hutoolCore
+    compileOnly dependLibs.lombok
+    annotationProcessor dependLibs.lombok
+}

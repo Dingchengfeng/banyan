@@ -1,0 +1,46 @@
+apply from: "${rootDir}/gradle/config.gradle"
+
+buildscript {
+    ext {
+        springBootVersion = '2.7.6'
+        springBootAdminVersion = "2.7.4"
+        springCloudVersion = '2021.0.4'
+        smartDocGradlePluginVersion = '2.2.2'
+        gradleGitPropertiesVersion = '2.4.1'
+    }
+    repositories {
+        maven {
+            name 'Alibaba'
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "com.github.shalousun:smart-doc-gradle-plugin:${smartDocGradlePluginVersion}"
+        classpath "com.gorylenko.gradle-git-properties:gradle-git-properties:${gradleGitPropertiesVersion}"
+    }
+}
+
+subprojects {
+    ext {
+        versions = rootProject.ext.versions
+        dependLibs = rootProject.ext.dependLibs
+    }
+
+    apply from: rootProject.file('gradle/project.gradle')
+
+    dependencies {
+    }
+
+    jar.enabled=true
+
+    // 打包源码
+    task sourceJar(type: Jar) {
+        from sourceSets.main.allJava
+    }
+}

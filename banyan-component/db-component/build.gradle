@@ -1,0 +1,9 @@
+dependencies {
+    api dependLibs.mybatisPlus
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-mysql'
+    compileOnly dependLibs.lombok
+    annotationProcessor dependLibs.lombok
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+}

@@ -1,0 +1,20 @@
+server:
+  port: 80
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: banyan
+  profiles:
+    active: local,dynamictp
+  messages:
+    basename: i18n.messages
+    cache-duration: 1
+
+info:
+  appName: ${spring.application.name}
+  company: standard-robots.com
