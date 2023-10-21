@@ -31,8 +31,9 @@ public class DefaultMqttClient {
         try {
             mqttClient  = new MqttClient(this.brokerUrl,this.clientId,this.mqttClientPersistence);
         } catch (MqttException e) {
-            //log.error("mqtt client connect error",e);
+            log.error("mqttClient创建失败:username={},password={},",username, password,e);
         }
+
     }
 
     public void connect(MqttCallback mqttCallback) {
@@ -45,7 +46,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.connect(connOpts);
         } catch (MqttException e) {
-            //log.error("mqttClient连接失败: errorMsg={},username={},password={}", e.getMessage(), username, password);
+            log.error("mqttClient连接失败: errorMsg={},username={},password={}", e.getMessage(), username, password);
         }
     }
 
@@ -54,7 +55,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.reconnect();
         } catch (MqttException e) {
-           // log.error("mqttClient重连失败: errorMsg={}",e.getMessage());
+           log.error("mqttClient重连失败: errorMsg={}",e.getMessage());
         }
     }
 
@@ -67,7 +68,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.publish(topic,mqttMessage);
         } catch (MqttException e) {
-            //log.error("mqttClient发布消息失败: errorMsg={},topic={},msg={},qos={},retained={}", e.getMessage(),topic, new  String(msg,StandardCharsets.UTF_8),qos,retained);
+            log.error("mqttClient发布消息失败: errorMsg={},topic={},msg={},qos={},retained={}", e.getMessage(),topic, new  String(msg,StandardCharsets.UTF_8),qos,retained);
         }
     }
 
@@ -75,7 +76,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.subscribe(topicFiler,qos.ordinal());
         } catch (MqttException e) {
-            //log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}",e.getMessage(),topicFiler,qos);
+            log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}",e.getMessage(),topicFiler,qos);
         }
     }
 
@@ -83,7 +84,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.subscribe(topicFiler,qos);
         } catch (MqttException e) {
-            //log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}", e.getMessage(),topicFiler,qos);
+            log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}", e.getMessage(),topicFiler,qos);
         }
     }
 
@@ -91,7 +92,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.disconnect();
         } catch (MqttException e) {
-            //log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}", e.getMessage(),topicFiler,qos);
+            log.error("mqttClient断开失败: ", e);
         }
     }
 

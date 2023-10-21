@@ -32,7 +32,7 @@ public class MessageCallback implements MqttCallback {
     @Override
     public void disconnected(MqttDisconnectResponse disconnectResponse) {
         defaultMqttClient.reconnect();
-        //log.error("mqttClient连接断开，msg={},returnCode={}",disconnectResponse.getException().getMessage(),disconnectResponse.getReturnCode());
+        log.error("mqttClient连接断开，msg={},returnCode={}",disconnectResponse.getException().getMessage(),disconnectResponse.getReturnCode());
     }
 
     /**
@@ -41,7 +41,7 @@ public class MessageCallback implements MqttCallback {
      */
     @Override
     public void mqttErrorOccurred(MqttException exception) {
-        //log.error("mqttClient异常，msg={},reasonCode={}",exception.getMessage(),exception.getReasonCode());
+        log.error("mqttClient异常，msg={},reasonCode={}",exception.getMessage(),exception.getReasonCode());
     }
 
     /**
@@ -52,13 +52,12 @@ public class MessageCallback implements MqttCallback {
      */
     @Override
     public void messageArrived(String topic, MqttMessage message) {
-        //消息放到rocketMQ
-        //log.info("收到消息:topic={},message={}",topic,message);
+        log.info("收到消息:topic={},message={}",topic,message);
         try {
             // todo 如何处理消息，处理到什么程度
             driverMessageHandler.handleMessage(message.toString());
         } catch (Exception e) {
-            //log.info("发送失败,error={},topic={},msg={}",e.getMessage(),topic,message);
+            log.info("发送失败,error={},topic={},msg={}",e.getMessage(),topic,message);
             return;
         }
     }
@@ -70,7 +69,7 @@ public class MessageCallback implements MqttCallback {
     @Override
     public void deliveryComplete(IMqttToken token) {
         //todo-dcf 是否需要通知上层应用
-        //log.info("消息发布成功:topic={},messageId={}",token.getTopics(),token.getMessageId());
+        log.info("消息发布成功:topic={},messageId={}",token.getTopics(),token.getMessageId());
     }
 
     /**
@@ -80,7 +79,7 @@ public class MessageCallback implements MqttCallback {
      */
     @Override
     public void connectComplete(boolean reconnect, String serverURI) {
-        //log.info("连接成功:reconnect={},serverURI={}",reconnect,serverURI);
+        log.info("连接成功:reconnect={},serverURI={}",reconnect,serverURI);
         String[] topicFilterArray  = new String[]{
                 MqttTopicFilter.PREFIX_SHARE_LAND + MqttTopicFilter.CONNECTION,
                 MqttTopicFilter.PREFIX_SHARE_LAND + MqttTopicFilter.STATE,
@@ -99,8 +98,7 @@ public class MessageCallback implements MqttCallback {
 
     @Override
     public void authPacketArrived(int reasonCode, MqttProperties properties) {
-        //log.info("authPacketArrived");
+        log.info("authPacketArrived");
     }
-
 
 }

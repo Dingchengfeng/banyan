@@ -7,10 +7,8 @@ import com.standard.banyan.driver.amr.domain.AmrInfo;
 import com.standard.banyan.driver.amr.domain.DriverConfig;
 import com.standard.banyan.driver.vda5050.mqtt.DefaultMqttClient;
 import com.standard.banyan.driver.vda5050.mqtt.MessageCallback;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author dingchengfeng
