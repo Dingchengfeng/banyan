@@ -1,5 +1,5 @@
 # banyan
-- 项目定制业务工程，每个项目作为一个模块
+- 移动机器人数字物流系统
 
 ## 接口文档生成器
 
@@ -9,9 +9,6 @@
 - [最佳实践](https://smart-doc-group.github.io/#/zh-cn/start/bestPractice)
 - [注释说明](https://smart-doc-group.github.io/#/zh-cn/start/javadoc)
 
-## maven私服访问
-- 刷新本地DNS
-- 如果开启了vpn系统代理，需过滤公司域名：\*.standard*
 
 ## 可配置的环境变量(也可配置为虚拟机选项)
 - app.tmpdir : 应用程序使用的临时目录，默认为工程目录下的tmp
