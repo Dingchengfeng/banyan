@@ -1,4 +1,5 @@
-# allspark
+# banyan
+- 项目定制业务工程，每个项目作为一个模块
 
 ## 接口文档生成器
 
@@ -8,7 +9,7 @@
 - [最佳实践](https://smart-doc-group.github.io/#/zh-cn/start/bestPractice)
 - [注释说明](https://smart-doc-group.github.io/#/zh-cn/start/javadoc)
 
-## maven私服访问不了
+## maven私服访问
 - 刷新本地DNS
 - 如果开启了vpn系统代理，需过滤公司域名：\*.standard*
 

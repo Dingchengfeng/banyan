@@ -21,6 +21,8 @@ ext {
             jetbrainsAnnotations: '20.1.0',
             springFileStorage: '0.7.0',
             dynamicTp: '1.1.0',
+            jama: '1.0.3',
+            mqttv5Client: '1.2.5',
     ]
 
     // 依赖库
@@ -48,6 +50,10 @@ ext {
             springFileStorage: "cn.xuyanwu:spring-file-storage:${versions.springFileStorage}",
             dynamicTpCommon: "cn.dynamictp:dynamic-tp-spring-boot-starter-common:${versions.dynamicTp}",
             dynamicTpWebserver: "cn.dynamictp:dynamic-tp-spring-boot-starter-adapter-webserver:${versions.dynamicTp}",
+            jama: "gov.nist.math:jama:${versions.jama}",
+            mqttv5Client: "org.eclipse.paho:org.eclipse.paho.mqttv5.client:${versions.mqttv5Client}",
+
+
     ]
 
 }

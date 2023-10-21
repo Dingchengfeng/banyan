@@ -13,4 +13,6 @@ include 'banyan-component:file-component'
 
 include 'banyan-demo'
 
+include 'banyan-driver:banyan-driver-interface'
+include 'banyan-driver:banyan-driver-vda5050'
 
