@@ -14,19 +14,25 @@ public interface CommAdapter {
 
     /**
      * 立即执行
-     * @param command
+     * @param command 指令
      */
     void execute(Command command);
 
     /**
      * 追加移动指令
+     * @param order 移动指令
      */
     void append(Movement order);
 
-    List<Command> getCommandList();
     /**
-     * 获取车辆信息
-     * @return
+     * 获取可以执行的指令集合
+     * @return 可以执行的指令集合
+     */
+    List<Command> getCommandList();
+
+    /**
+     * 获取机器人信息
+     * @return 机器人信息
      */
     AmrInfo getAmrInfo();
 
