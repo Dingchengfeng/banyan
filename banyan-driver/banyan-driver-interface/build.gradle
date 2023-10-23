@@ -1,0 +1,11 @@
+dependencies {
+    compileOnly dependLibs.lombok
+    annotationProcessor dependLibs.lombok
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompileOnly dependLibs.lombok
+    testAnnotationProcessor dependLibs.lombok
+}
+
+test {
+    useJUnitPlatform()
+}

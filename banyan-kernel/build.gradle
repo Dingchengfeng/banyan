@@ -1,0 +1,7 @@
+dependencies {
+    api dependLibs.hutoolCore
+    api dependLibs.fastjson
+
+    compileOnly dependLibs.lombok
+    annotationProcessor dependLibs.lombok
+}

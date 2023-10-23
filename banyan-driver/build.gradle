@@ -1,0 +1,4 @@
+allprojects {
+    group 'com.standard.banyan.driver'
+    version '2.1.0-SNAPSHOT'
+}
