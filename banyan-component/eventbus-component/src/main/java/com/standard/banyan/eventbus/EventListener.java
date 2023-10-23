@@ -1,7 +1,7 @@
 package com.standard.banyan.eventbus;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 public interface EventListener {
 }

@@ -6,7 +6,7 @@ import org.springframework.validation.beanvalidation.MethodValidationPostProcess
 
 /**
  * 校验类配置
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Configuration
 public class ValidateFactoryConfig {

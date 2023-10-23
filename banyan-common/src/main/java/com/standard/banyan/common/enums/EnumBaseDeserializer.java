@@ -7,7 +7,7 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import java.lang.reflect.Type;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 public class EnumBaseDeserializer implements ObjectDeserializer {
 

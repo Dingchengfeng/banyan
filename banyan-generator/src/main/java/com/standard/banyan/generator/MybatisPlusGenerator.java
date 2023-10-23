@@ -22,7 +22,7 @@ import java.io.File;
 import java.util.Collections;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Slf4j
 @Component

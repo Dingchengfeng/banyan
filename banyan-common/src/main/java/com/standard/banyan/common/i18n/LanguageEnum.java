@@ -8,7 +8,7 @@ import java.util.Locale;
 
 /**
  * 国际化 语言枚举类
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Getter
 @ToString

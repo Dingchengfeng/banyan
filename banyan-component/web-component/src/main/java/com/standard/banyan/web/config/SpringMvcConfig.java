@@ -11,7 +11,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Configuration
 public class SpringMvcConfig {

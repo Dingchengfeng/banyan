@@ -22,7 +22,7 @@ import java.io.StringWriter;
 
 /**
  * 拦截异常并统一处理
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Slf4j
 @RestControllerAdvice

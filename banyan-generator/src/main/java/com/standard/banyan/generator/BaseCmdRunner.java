@@ -8,7 +8,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Slf4j
 public abstract class BaseCmdRunner implements ApplicationRunner {
