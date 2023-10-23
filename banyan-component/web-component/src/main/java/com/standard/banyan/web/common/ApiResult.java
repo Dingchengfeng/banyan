@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 /**
  * 接口返回结果封装
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Getter
 @Setter

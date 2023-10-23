@@ -7,12 +7,28 @@ import java.util.Map;
  * @date 2023/10/21
  **/
 public interface Command {
+    /**
+     * 获取指令字
+     * @return 指令字
+     */
     String getCommandWord();
 
+    /**
+     * 获取指令id
+     * @return 指令id
+     */
     String getCommandId();
 
+    /**
+     * 获取指令描述
+     * @return 指令描述
+     */
     String getCommandDesc();
 
+    /**
+     * 获取指令参数
+     * @return 指令参数
+     */
     Map<String,CommandParam> getCommandParams();
 
     class CommandParam {

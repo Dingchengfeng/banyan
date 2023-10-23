@@ -1,5 +1,5 @@
 apply plugin: 'com.github.shalousun.smart-doc'
-apply plugin: "com.gorylenko.gradle-git-properties"
+//apply plugin: "com.gorylenko.gradle-git-properties"
 
 smartdoc {
     configFile = file("src/main/resources/smart-doc.json")

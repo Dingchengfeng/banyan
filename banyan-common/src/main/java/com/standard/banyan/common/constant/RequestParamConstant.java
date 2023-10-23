@@ -1,7 +1,7 @@
 package com.standard.banyan.common.constant;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 public class RequestParamConstant {
     private RequestParamConstant() {

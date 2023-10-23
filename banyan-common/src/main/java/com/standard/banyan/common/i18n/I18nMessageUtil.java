@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * 多语言国际化消息工具类
- * @author jigang.duan
+ * @author dingchengfeng
  */
 public class I18nMessageUtil {
 

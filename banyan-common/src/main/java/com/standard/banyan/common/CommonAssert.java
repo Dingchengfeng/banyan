@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 /**
  * 断言抛出相关异常
- * @author jigang.duan
+ * @author dingchengfeng
  */
 public final class CommonAssert {
 

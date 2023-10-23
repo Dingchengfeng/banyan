@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 /**
  * Bean拷贝相关工具类
  *
- * @author jigang.duan
+ * @author dingchengfeng
  * @date 2021/11/18 10:12 上午
  */
 public class ColaBeanUtil {

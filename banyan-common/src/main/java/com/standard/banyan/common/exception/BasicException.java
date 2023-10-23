@@ -5,7 +5,7 @@ import lombok.Getter;
 
 /**
  * 基础异常
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Getter
 public class BasicException extends RuntimeException {

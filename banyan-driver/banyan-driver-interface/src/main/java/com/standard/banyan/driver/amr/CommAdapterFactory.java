@@ -11,7 +11,7 @@ import java.util.List;
  **/
 public interface CommAdapterFactory {
 
-    void init(DriverConfig driverConfig,DriverMessageHandler d);
+    void init(DriverConfig driverConfig, MessageHandler d);
 
     List<String> getAdapterKeys();
 

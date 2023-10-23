@@ -1,11 +1,8 @@
 dependencies {
+    implementation dependLibs.fastjson
+    implementation dependLibs.hutoolCore
     compileOnly dependLibs.lombok
     annotationProcessor dependLibs.lombok
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompileOnly dependLibs.lombok
     testAnnotationProcessor dependLibs.lombok
-}
-
-test {
-    useJUnitPlatform()
 }

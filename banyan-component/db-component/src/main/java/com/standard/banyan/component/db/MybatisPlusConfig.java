@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.Resource;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @MapperScan(basePackages = "com.standard.banyan.*.persistent.mapper")
 @Configuration

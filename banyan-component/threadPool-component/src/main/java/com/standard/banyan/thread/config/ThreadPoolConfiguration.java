@@ -4,7 +4,7 @@ import com.dtp.core.spring.EnableDynamicTp;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @EnableDynamicTp
 @Configuration

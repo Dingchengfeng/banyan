@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 测试接口
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @RestController
 @RequestMapping("/")

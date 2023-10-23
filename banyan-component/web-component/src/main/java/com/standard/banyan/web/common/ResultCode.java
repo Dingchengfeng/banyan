@@ -5,7 +5,7 @@ import lombok.Getter;
 
 /**
  * 接口返回枚举
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Getter
 public enum ResultCode implements IErrorCode {

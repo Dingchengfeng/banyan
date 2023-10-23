@@ -1,5 +1,7 @@
 package com.standard.banyan.driver.vda5050.mqtt;
 
+import com.standard.banyan.driver.vda5050.mqtt.topic.PublishTopic;
+import com.standard.banyan.driver.vda5050.mqtt.topic.Topic;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.mqttv5.client.*;
 import org.eclipse.paho.mqttv5.client.persist.MemoryPersistence;
@@ -15,12 +17,12 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 public class DefaultMqttClient {
     private IMqttClient mqttClient;
-    private MqttClientPersistence mqttClientPersistence;
+    private final MqttClientPersistence mqttClientPersistence;
 
-    private String brokerUrl;
-    private String clientId;
-    private String username;
-    private String password;
+    private final String brokerUrl;
+    private final String clientId;
+    private final String username;
+    private final String password;
 
     public DefaultMqttClient(String brokerUrl, String clientId, String username, String password) {
         this.brokerUrl = brokerUrl;
@@ -31,9 +33,8 @@ public class DefaultMqttClient {
         try {
             mqttClient  = new MqttClient(this.brokerUrl,this.clientId,this.mqttClientPersistence);
         } catch (MqttException e) {
-            log.error("mqttClient创建失败:username={},password={},",username, password,e);
+            log.error("mqttClient 创建失败:",e);
         }
-
     }
 
     public void connect(MqttCallback mqttCallback) {
@@ -46,7 +47,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.connect(connOpts);
         } catch (MqttException e) {
-            log.error("mqttClient连接失败: errorMsg={},username={},password={}", e.getMessage(), username, password);
+            log.error("mqttClient连接失败: username={},password={}", username, password,e);
         }
     }
 
@@ -55,26 +56,26 @@ public class DefaultMqttClient {
         try {
             mqttClient.reconnect();
         } catch (MqttException e) {
-           log.error("mqttClient重连失败: errorMsg={}",e.getMessage());
+           log.error("mqttClient重连失败: ",e);
         }
     }
 
-    public void publish(String topic, byte[] msg, QosEnum qos, boolean retained){
+    public void publish(PublishTopic topic, String msg){
         MqttMessage mqttMessage = new MqttMessage();
-        mqttMessage.setPayload(msg);
-        mqttMessage.setQos(qos.ordinal());
-        mqttMessage.setRetained(retained);
+        mqttMessage.setPayload(msg.getBytes(StandardCharsets.UTF_8));
+        mqttMessage.setQos(topic.getQos().getQosValue());
+        mqttMessage.setRetained(topic.isRetained());
 
         try {
-            mqttClient.publish(topic,mqttMessage);
+            mqttClient.publish(topic.getTopicFilter(),mqttMessage);
         } catch (MqttException e) {
-            log.error("mqttClient发布消息失败: errorMsg={},topic={},msg={},qos={},retained={}", e.getMessage(),topic, new  String(msg,StandardCharsets.UTF_8),qos,retained);
+            log.error("mqttClient发布消息失败:topic={},msg={}",topic, msg,e);
         }
     }
 
-    public void subscribe(String topicFiler, QosEnum qos){
+    public void subscribe(String topicFiler, Topic.Qos qos){
         try {
-            mqttClient.subscribe(topicFiler,qos.ordinal());
+            mqttClient.subscribe(topicFiler,qos.getQosValue());
         } catch (MqttException e) {
             log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}",e.getMessage(),topicFiler,qos);
         }
@@ -92,7 +93,7 @@ public class DefaultMqttClient {
         try {
             mqttClient.disconnect();
         } catch (MqttException e) {
-            log.error("mqttClient断开失败: ", e);
+            log.error("mqttClient断开连接失败: ", e);
         }
     }
 

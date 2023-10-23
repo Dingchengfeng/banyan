@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * 请求使用Fast Json
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Configuration
 public class HttpFastJsonConfig {

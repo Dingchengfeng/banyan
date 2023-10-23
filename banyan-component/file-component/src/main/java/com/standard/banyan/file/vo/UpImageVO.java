@@ -3,7 +3,7 @@ package com.standard.banyan.file.vo;
 import lombok.Data;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Data
 public class UpImageVO {

@@ -17,7 +17,7 @@ import java.nio.file.Path;
 /**
  * 文件操作
  *
- * @author jigang.duan*/
+ * @author dingchengfeng*/
 @RestController
 @RequestMapping("/api/v2/file/")
 public class FileDetailController {

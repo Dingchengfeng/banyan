@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import java.util.concurrent.*;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Configuration
 public class EventBusConfig {

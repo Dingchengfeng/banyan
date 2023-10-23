@@ -7,7 +7,7 @@ import lombok.Setter;
 
 /**
  * 分页请求
- * @author jigang.duan
+ * @author dingchengfeng
  */
 @Getter
 @Setter

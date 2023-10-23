@@ -7,7 +7,7 @@ import com.alibaba.fastjson.serializer.SerializeWriter;
 import java.lang.reflect.Type;
 
 /**
- * @author jigang.duan
+ * @author dingchengfeng
  */
 public class SEnumBaseSerializer implements ObjectSerializer {
     @Override

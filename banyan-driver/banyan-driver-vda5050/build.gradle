@@ -1,10 +1,12 @@
 dependencies {
     implementation dependLibs.fastjson
     implementation dependLibs.hutoolCore
-    implementation dependLibs.mqttv5Client
-    implementation dependLibs.slf4jApi
     compileOnly dependLibs.lombok
     annotationProcessor dependLibs.lombok
+    testCompileOnly dependLibs.lombok
+    testAnnotationProcessor dependLibs.lombok
+    implementation dependLibs.mqttv5Client
+    implementation dependLibs.slf4jApi
     implementation project(':banyan-driver:banyan-driver-interface')
 
 }
