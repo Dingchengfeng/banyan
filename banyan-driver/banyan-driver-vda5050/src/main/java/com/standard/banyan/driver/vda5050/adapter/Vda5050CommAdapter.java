@@ -1,9 +1,12 @@
 package com.standard.banyan.driver.vda5050.adapter;
 
+import com.alibaba.fastjson.JSON;
 import com.standard.banyan.driver.amr.CommAdapter;
 import com.standard.banyan.driver.amr.command.Command;
 import com.standard.banyan.driver.amr.domain.AmrInfo;
 import com.standard.banyan.driver.amr.domain.Movement;
+import com.standard.banyan.driver.vda5050.adapter.message.instantactions.InstantActions;
+import com.standard.banyan.driver.vda5050.adapter.message.order.Order;
 import com.standard.banyan.driver.vda5050.mqtt.DefaultMqttClient;
 import com.standard.banyan.driver.vda5050.mqtt.topic.PublishTopic;
 import com.standard.banyan.driver.vda5050.mqtt.topic.Topic;
@@ -41,12 +44,16 @@ public class Vda5050CommAdapter implements CommAdapter {
 
     @Override
     public void execute(Command command) {
-        mqttClient.publish(instantActionsTopic, "");
+        // todo command 转 instantActions
+        InstantActions instantActions = new InstantActions();
+        mqttClient.publish(instantActionsTopic, JSON.toJSONString(instantActions));
     }
 
     @Override
     public void append(Movement movement) {
-        mqttClient.publish(orderTopic, "");
+        // todo movement 转 order
+        Order order = new Order();
+        mqttClient.publish(orderTopic, JSON.toJSONString(order));
     }
 
     @Override
