@@ -17,11 +17,15 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 public class DefaultMqttClient {
     private IMqttClient mqttClient;
+
     private final MqttClientPersistence mqttClientPersistence;
 
     private final String brokerUrl;
+
     private final String clientId;
+
     private final String username;
+
     private final String password;
 
     public DefaultMqttClient(String brokerUrl, String clientId, String username, String password) {
@@ -31,9 +35,9 @@ public class DefaultMqttClient {
         this.password = password;
         this.mqttClientPersistence = new MemoryPersistence();
         try {
-            mqttClient  = new MqttClient(this.brokerUrl,this.clientId,this.mqttClientPersistence);
+            mqttClient = new MqttClient(this.brokerUrl, this.clientId, this.mqttClientPersistence);
         } catch (MqttException e) {
-            log.error("mqttClient 创建失败:",e);
+            log.error("mqttClient 创建失败:", e);
         }
     }
 
@@ -47,49 +51,49 @@ public class DefaultMqttClient {
         try {
             mqttClient.connect(connOpts);
         } catch (MqttException e) {
-            log.error("mqttClient连接失败: username={},password={}", username, password,e);
+            log.error("mqttClient连接失败: username={},password={}", username, password, e);
         }
     }
 
 
-    public void reconnect(){
+    public void reconnect() {
         try {
             mqttClient.reconnect();
         } catch (MqttException e) {
-           log.error("mqttClient重连失败: ",e);
+            log.error("mqttClient重连失败: ", e);
         }
     }
 
-    public void publish(PublishTopic topic, String msg){
+    public void publish(PublishTopic topic, String msg) {
         MqttMessage mqttMessage = new MqttMessage();
         mqttMessage.setPayload(msg.getBytes(StandardCharsets.UTF_8));
         mqttMessage.setQos(topic.getQos().getQosValue());
         mqttMessage.setRetained(topic.isRetained());
 
         try {
-            mqttClient.publish(topic.getTopicFilter(),mqttMessage);
+            mqttClient.publish(topic.getTopicFilter(), mqttMessage);
         } catch (MqttException e) {
-            log.error("mqttClient发布消息失败:topic={},msg={}",topic, msg,e);
+            log.error("mqttClient发布消息失败:topic={},msg={}", topic, msg, e);
         }
     }
 
-    public void subscribe(String topicFiler, Topic.Qos qos){
+    public void subscribe(String topicFiler, Topic.Qos qos) {
         try {
-            mqttClient.subscribe(topicFiler,qos.getQosValue());
+            mqttClient.subscribe(topicFiler, qos.getQosValue());
         } catch (MqttException e) {
-            log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}",e.getMessage(),topicFiler,qos);
+            log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}", e.getMessage(), topicFiler, qos);
         }
     }
 
-    public void subscribe(String[] topicFiler,int[] qos){
+    public void subscribe(String[] topicFiler, int[] qos) {
         try {
-            mqttClient.subscribe(topicFiler,qos);
+            mqttClient.subscribe(topicFiler, qos);
         } catch (MqttException e) {
-            log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}", e.getMessage(),topicFiler,qos);
+            log.error("mqttClient订阅消息失败: errorMsg={},topicFiler={},qos={}", e.getMessage(), topicFiler, qos);
         }
     }
 
-    public void disconnect(){
+    public void disconnect() {
         try {
             mqttClient.disconnect();
         } catch (MqttException e) {

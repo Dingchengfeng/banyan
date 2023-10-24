@@ -1,6 +1,8 @@
 dependencies {
     api dependLibs.hutoolCore
     api dependLibs.fastjson
+    implementation 'org.springframework:spring-context'
+    implementation project(":banyan-driver:banyan-driver-interface")
 
     compileOnly dependLibs.lombok
     annotationProcessor dependLibs.lombok
