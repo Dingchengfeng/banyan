@@ -9,7 +9,6 @@ package com.standard.banyan.driver.vda5050.adapter.message.order;
 
 import com.standard.banyan.driver.vda5050.adapter.message.common.Action;
 import com.standard.banyan.driver.vda5050.adapter.message.common.NodePosition;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

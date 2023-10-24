@@ -23,6 +23,7 @@ ext {
             dynamicTp: '1.1.0',
             jama: '1.0.3',
             mqttv5Client: '1.2.5',
+            jackson: '2.15.3',
     ]
 
     // 依赖库
@@ -52,7 +53,7 @@ ext {
             dynamicTpWebserver: "cn.dynamictp:dynamic-tp-spring-boot-starter-adapter-webserver:${versions.dynamicTp}",
             jama: "gov.nist.math:jama:${versions.jama}",
             mqttv5Client: "org.eclipse.paho:org.eclipse.paho.mqttv5.client:${versions.mqttv5Client}",
-
+            jackson: "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}",
 
     ]
 

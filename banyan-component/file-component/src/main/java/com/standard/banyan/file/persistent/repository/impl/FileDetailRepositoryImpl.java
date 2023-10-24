@@ -5,9 +5,9 @@ import cn.hutool.core.lang.Dict;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.xuyanwu.spring.file.storage.FileInfo;
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.standard.banyan.file.persistent.entity.FileDetailDO;
 import com.standard.banyan.file.persistent.mapper.FileDetailMapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.standard.banyan.file.persistent.repository.FileDetailRepository;
 import org.springframework.stereotype.Service;
 

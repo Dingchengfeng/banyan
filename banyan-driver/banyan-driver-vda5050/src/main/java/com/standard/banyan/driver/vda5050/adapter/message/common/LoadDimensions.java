@@ -7,7 +7,6 @@
  */
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

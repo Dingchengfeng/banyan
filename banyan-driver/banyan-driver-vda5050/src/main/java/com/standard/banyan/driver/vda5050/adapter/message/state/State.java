@@ -10,7 +10,6 @@ package com.standard.banyan.driver.vda5050.adapter.message.state;
 import com.standard.banyan.driver.vda5050.adapter.message.Header;
 import com.standard.banyan.driver.vda5050.adapter.message.common.AgvPosition;
 import com.standard.banyan.driver.vda5050.adapter.message.common.Velocity;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

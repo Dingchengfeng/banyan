@@ -1,7 +1,6 @@
 package com.standard.banyan.driver.vda5050.adapter.message.factsheet;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

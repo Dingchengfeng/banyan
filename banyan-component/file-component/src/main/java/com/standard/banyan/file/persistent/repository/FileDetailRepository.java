@@ -1,8 +1,8 @@
 package com.standard.banyan.file.persistent.repository;
 
 import cn.xuyanwu.spring.file.storage.recorder.FileRecorder;
-import com.standard.banyan.file.persistent.entity.FileDetailDO;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.standard.banyan.file.persistent.entity.FileDetailDO;
 
 /**
  * <p>

@@ -8,7 +8,6 @@
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import com.standard.banyan.driver.vda5050.adapter.message.common.NodePosition;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

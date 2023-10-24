@@ -1,7 +1,7 @@
 package com.standard.banyan.file.persistent.mapper;
 
-import com.standard.banyan.file.persistent.entity.FileDetailDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.standard.banyan.file.persistent.entity.FileDetailDO;
 
 /**
  * <p>

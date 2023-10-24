@@ -2,7 +2,6 @@ package com.standard.banyan.driver.vda5050.adapter.message.instantactions;
 
 import com.standard.banyan.driver.vda5050.adapter.message.Header;
 import com.standard.banyan.driver.vda5050.adapter.message.common.Action;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
