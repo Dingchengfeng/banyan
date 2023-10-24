@@ -9,6 +9,8 @@ package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -16,7 +18,8 @@ import java.io.Serializable;
 /**
  * Describes a reference to an error.
  */
-@Data
+@Getter
+@Setter
 public class ErrorReference implements Serializable {
 
   /**

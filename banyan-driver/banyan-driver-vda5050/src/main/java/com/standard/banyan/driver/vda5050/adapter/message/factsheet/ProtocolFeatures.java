@@ -1,15 +1,18 @@
 package com.standard.banyan.driver.vda5050.adapter.message.factsheet;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
- * @author dengxx
+ * @author dingchengfeng
  * @description VDA5050协议支持的功能
  * @date 2023/08/22
  */
-@Data
+@Getter
+@Setter
 public class ProtocolFeatures {
     /**
      * 支持和/或必需的可选参数列表。 此处未列出的可选参数假定 AGV 不支持
@@ -19,7 +22,8 @@ public class ProtocolFeatures {
      * 此AGV支持的参数的所有操作的列表
      */
     private List<AgvAction> agvActions;
-    @Data
+    @Getter
+    @Setter
     public static class OptionalParameter {
         /**
          * 可选参数的全名
@@ -28,14 +32,27 @@ public class ProtocolFeatures {
         /**
          * 可选参数的支持类型
          */
-        private String support;
+        private Support support;
         /**
          * 可选参数的支持类型
          */
         private String description;
+
+        public enum Support {
+            /**
+             * 可选的
+             */
+            SUPPORTED,
+            /**
+             * 必须的
+             */
+            REQUIRED;
+        }
+
     }
 
-    @Data
+    @Getter
+    @Setter
     public static class AgvAction {
         /**
          * 对应于action.actionType的唯一actionType
@@ -57,7 +74,8 @@ public class ProtocolFeatures {
          * 返回结果的描述信息
          */
         private String resultDescription;
-        @Data
+        @Getter
+        @Setter
         public static class ActionParameter {
             /**
              * 用来指示车辆经过“lastNodeId”的距离。以米为单位
@@ -83,12 +101,14 @@ public class ProtocolFeatures {
      */
     public enum ValueDataType {
         BOOL,
-        NUMBER,
         INTEGER,
+        LONG,
         FLOAT,
+        DOUBLE,
         STRING,
+        ARRAY,
         OBJECT,
-        ARRAY
+
     }
 
     /**

@@ -5,16 +5,19 @@
  * see the licensing information (LICENSE.txt) you should have received with
  * this copy of the software.)
  */
-package com.standard.banyan.driver.vda5050.adapter.message.state;
+package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 /**
  * Dimensions of the load's bounding box.
  */
-@Data
+@Getter
+@Setter
 public class LoadDimensions implements Serializable {
 
   /**

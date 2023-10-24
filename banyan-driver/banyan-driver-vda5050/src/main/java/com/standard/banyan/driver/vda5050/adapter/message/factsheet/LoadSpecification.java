@@ -1,15 +1,19 @@
 package com.standard.banyan.driver.vda5050.adapter.message.factsheet;
 
-import lombok.Data;
+import com.standard.banyan.driver.vda5050.adapter.message.common.BoundingBoxReference;
+import com.standard.banyan.driver.vda5050.adapter.message.common.LoadDimensions;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
- * @author dengxx
+ * @author dingchengfeng
  * @description 负载能力的抽象规范
  * @date 2023/08/22
  */
-@Data
+@Getter
+@Setter
 public class LoadSpecification {
     /**
      * 负载位置/负载处理设备列表
@@ -19,10 +23,11 @@ public class LoadSpecification {
      * AGV 可以处理的负载集列表
      */
     private List<LoadSet> loadSets;
-    @Data
+    @Getter
+    @Setter
     private static class LoadSet {
         /**
-         * 负载工具名称
+         * 负载集的唯一名称
          */
         private String setName;
         /**
@@ -40,7 +45,7 @@ public class LoadSpecification {
         /**
          * 负载尺寸
          */
-        private LoadDimension loadDimensions;
+        private LoadDimensions loadDimensions;
         /**
          * 负载类型最大重量
          */
@@ -90,44 +95,12 @@ public class LoadSpecification {
          */
         private Double dropTime;
         /**
-         * 负载处理系统的文本描述
+         * 负载处理集合的描述
          */
         private String description;
 
-        @Data
-        public static class BoundingBoxReference {
-            /**
-             * 参考点的 x 坐标
-             */
-            private Double x;
-            /**
-             * 参考点的 y 坐标
-             */
-            private Double y;
-            /**
-             * 参考点的 z 坐标
-             */
-            private Double z;
-            /**
-             * 载荷边界框的方向。 对于拖船列车等很重要
-             */
-            private Double theta;
-        }
-        @Data
-        public static class LoadDimension {
-            /**
-             * 负载边界框的绝对长度
-             */
-            private Double length;
-            /**
-             * 负载边界框的绝对宽度
-             */
-            private Double width;
-            /**
-             * 负载边界框的绝对高度
-             */
-            private Double height;
-        }
+
+
 
     }
 }

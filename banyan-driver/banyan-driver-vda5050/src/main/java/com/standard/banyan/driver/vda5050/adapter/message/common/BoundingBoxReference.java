@@ -5,9 +5,11 @@
  * see the licensing information (LICENSE.txt) you should have received with
  * this copy of the software.)
  */
-package com.standard.banyan.driver.vda5050.adapter.message.state;
+package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -18,7 +20,8 @@ import java.io.Serializable;
  * The point of reference is always the center of the bounding box's bottom surface (at height = 0)
  * and is described in coordinates of the AGV's coordinate system.
  */
-@Data
+@Getter
+@Setter
 public class BoundingBoxReference  implements Serializable {
 
   /**

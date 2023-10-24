@@ -8,13 +8,16 @@
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 /**
  * Holds information about the safety status.
  */
-@Data
+@Getter
+@Setter
 public class SafetyState implements Serializable {
 
   /**

@@ -2,13 +2,16 @@ package com.standard.banyan.driver.vda5050.adapter.message.factsheet;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * @author dengxx
+ * @author dingchengfeng
  * @description AGV的协议限制
  * @date 2023/08/22
  */
-@Data
+@Getter
+@Setter
 public class ProtocolLimits {
 
     /**
@@ -26,24 +29,25 @@ public class ProtocolLimits {
      */
     private Timing timing;
 
-    @Data
+    @Getter
+    @Setter
     public static class MaxStringLens {
         /**
          * MQTT消息最大长度
          */
-        private Integer msgLen;
+        private Long msgLen;
         /**
          * MQTT 主题中序列号部分( serial-number)的最大长度
          */
-        private Integer topicSerialLen;
+        private Long topicSerialLen;
         /**
          * MQTT消息Topic其余部分的最大长度.
          */
-        private Integer topicElemLen;
+        private Long topicElemLen;
         /**
          * ID相关字段的最大长度
          */
-        private Integer idLen;
+        private Long idLen;
         /**
          * TRUE：ID相关的字符串只包含数字值
          */
@@ -51,114 +55,116 @@ public class ProtocolLimits {
         /**
          * 枚举值的最大长度
          */
-        private Integer enumLen;
+        private Long enumLen;
         /**
          * loadId 字符串的最大长度
          */
-        private Integer loadIdLen;
+        private Long loadIdLen;
     }
 
-    @Data
+    @Getter
+    @Setter
     public static class MaxArrayLens {
         /**
          * order消息中一次包含的nodes集合的最大个数
          */
         @JSONField(name = "order.nodes")
-        private Integer orderNodes;
+        private Long orderNodes;
         /**
          * order消息中一次包含的edges集合的最大个数
          */
         @JSONField(name = "order.edges")
-        private Integer orderEdges;
+        private Long orderEdges;
         /**
          * order消息中每个node包含的actions集合的最大个数
          */
         @JSONField(name = "node.actions")
-        private Integer nodeActions;
+        private Long nodeActions;
         /**
          * order消息中每个edge包含的actions集合的最大个数
          */
         @JSONField(name = "edge.actions")
-        private Integer edgeActions;
+        private Long edgeActions;
         /**
          * action操作的最大参数个数
          */
         @JSONField(name = "actions.actionsParameters")
-        private Integer actionsActionsParameters;
+        private Long actionsActionsParameters;
         /**
          * 每次下发即时指令时，下发的最大个数
          */
         @JSONField(name = "instantActions")
-        private Integer instantActions;
+        private Long instantActions;
         /**
          * AGV 可处理的每条轨迹的最大节数
          */
         @JSONField(name = "trajectory.knotVector")
-        private Integer trajectoryKnotVector;
+        private Long trajectoryKnotVector;
         /**
          * 控制点的最大个数
          */
         @JSONField(name = "trajectory.controlPoints")
-        private Integer trajectoryControlPoints;
+        private Long trajectoryControlPoints;
         /**
          * state消息中节点状态最大个数
          */
         @JSONField(name = "state.nodeStates")
-        private Integer stateNodeStates;
+        private Long stateNodeStates;
         /**
          * state消息中边状态最大个数
          */
         @JSONField(name = "state.edgeStates")
-        private Integer stateEdgeStates;
+        private Long stateEdgeStates;
         /**
          * state消息中负载信息状态最大个数
          */
         @JSONField(name = "state.loads")
-        private Integer stateLoads;
+        private Long stateLoads;
         /**
          * state消息中动作指令执行状态最大个数
          */
         @JSONField(name = "state.actionStates")
-        private Integer stateActionStates;
+        private Long stateActionStates;
         /**
          * state消息中错误信息的最大个数
          */
         @JSONField(name = "state.errors")
-        private Integer stateErrors;
+        private Long stateErrors;
         /**
          * state消息中调试可视化信息的最大个数
          */
         @JSONField(name = "state.information")
-        private Integer stateInformation;
+        private Long stateInformation;
         /**
          * state消息中错误引用的最大个数
          */
         @JSONField(name = "error.errorReferences")
-        private Integer errorErrorReferences;
+        private Long errorErrorReferences;
         /**
          * state消息中调试可视化信息中引用的最大个数
          */
         @JSONField(name = "information.infoReferences")
-        private Integer informationInfoReferences;
+        private Long informationInfoReferences;
     }
 
-    @Data
+    @Getter
+    @Setter
     public static class Timing {
         /**
          * 向 AGV 发送订单order类消息的最小间隔，单位s
          */
-        private Integer minOrderInterval;
+        private float minOrderInterval;
         /**
          * state类消息发送的最小间隔，单位s
          */
-        private Integer minStateInterval;
+        private float minStateInterval;
         /**
          * 发送状态消息的默认间隔如果未定义，则使用主文档中的默认值
          */
-        private Integer defaultStateInterval;
+        private float defaultStateInterval;
         /**
          * visualization类消息的发送默认间隔
          */
-        private Integer visualizationInterval;
+        private float visualizationInterval;
     }
 }

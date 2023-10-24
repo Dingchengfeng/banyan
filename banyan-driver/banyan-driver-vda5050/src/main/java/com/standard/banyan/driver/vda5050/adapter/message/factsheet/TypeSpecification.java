@@ -1,20 +1,27 @@
 package com.standard.banyan.driver.vda5050.adapter.message.factsheet;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
- * @author dengxx
+ * @author dingchengfeng
  * @description 型号规格
  * @date 2023/08/22
  */
-@Data
+@Getter
+@Setter
 public class TypeSpecification {
     /**
-     * 型号序列号名
+     * 系列名称
      */
     private String seriesName;
+    /**
+     * 该型号系列机器人的描述信息
+     */
+    private String seriesDescription;
     /**
      * AGV运动学类型的简化描述
      */
@@ -24,28 +31,43 @@ public class TypeSpecification {
      */
     private AgvClass agvClass;
     /**
-     * Node节点唯一标识
+     * 最大载重
      */
     private Double maxLoadMass;
     /**
-     * 本地化类型的简化描述
+     * 定位类型
      */
     private List<LocalizationType> localizationTypes;
     /**
      * 车辆支持的导航类型
      */
     private List<NavigationType> navigationTypes;
-    /**
-     * 该型号系列机器人的描述信息
-     */
-    private String seriesDescription;
+
 
     public enum LocalizationType {
+        /**
+         * 自然地标
+         */
         NATURAL,
+        /**
+         * 激光反射器
+         */
         REFLECTOR,
+        /**
+         * RFID标签
+         */
         RFID,
+        /**
+         * 二维码
+         */
         DMC,
+        /**
+         * 磁钉导航
+         */
         SPOT,
+        /**
+         * 磁栅导航
+         */
         GRID
     }
 
@@ -55,7 +77,7 @@ public class TypeSpecification {
          */
         PHYSICAL_LINDE_GUIDED,
         /**
-         * AGV进入固定（虚拟）路径
+         * 虚拟路径路径
          */
         VIRTUAL_LINE_GUIDED,
         /**
@@ -85,15 +107,15 @@ public class TypeSpecification {
          */
         FORKLIFT,
         /**
-         * 输送车
+         * 辊筒车
          */
         CONVEYOR,
         /**
-         * 拖车
+         * 牵引车
          */
         TUGGER,
         /**
-         * 运输车，带或不带提升装置的载运车辆
+         * 装载车；带或不带起重装置
          */
         CARRIER
     }

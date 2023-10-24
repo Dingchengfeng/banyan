@@ -9,10 +9,10 @@ buildscript {
         gradleGitPropertiesVersion = '2.4.1'
     }
     repositories {
-//        maven {
-//            name 'Alibaba'
-//            url 'https://maven.aliyun.com/repository/public/'
-//        }
+        maven {
+            name 'Alibaba'
+            url 'https://maven.aliyun.com/repository/public/'
+        }
         mavenCentral()
         maven {
             url "https://plugins.gradle.org/m2/"

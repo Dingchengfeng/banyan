@@ -8,13 +8,16 @@
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 /**
  * The AGV's velocity in vehicle coordinates.
  */
-@Data
+@Getter
+@Setter
 public class Velocity implements Serializable {
 
   /**

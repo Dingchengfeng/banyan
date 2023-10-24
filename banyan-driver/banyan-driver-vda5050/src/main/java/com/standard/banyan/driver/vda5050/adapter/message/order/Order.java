@@ -10,13 +10,16 @@ package com.standard.banyan.driver.vda5050.adapter.message.order;
 
 import com.standard.banyan.driver.vda5050.adapter.message.Header;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
  * Defines an order sent from master control to the AGV.
  */
-@Data
+@Getter
+@Setter
 public class Order extends Header {
 
   /**

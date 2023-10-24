@@ -8,6 +8,8 @@
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,8 +19,9 @@ import java.util.List;
  * <p>
  * Information messages are only for visualization/debugging.
  */
-@Data
-public class InfoEntry implements Serializable {
+@Getter
+@Setter
+public class Info implements Serializable {
 
   /**
    * The type/name of the information.

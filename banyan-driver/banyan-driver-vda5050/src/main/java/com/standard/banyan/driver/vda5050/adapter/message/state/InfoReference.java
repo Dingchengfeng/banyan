@@ -8,13 +8,16 @@
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 /**
  * Holds the information reference (e.g. orderId, orderUpdateId, actionId) as key-value pairs.
  */
-@Data
+@Getter
+@Setter
 public class InfoReference implements Serializable {
 
   /**

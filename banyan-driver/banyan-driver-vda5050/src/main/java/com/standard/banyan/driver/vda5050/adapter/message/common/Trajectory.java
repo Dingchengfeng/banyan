@@ -7,12 +7,17 @@
  */
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * The trajectory of an AGV described as NURBS.
  */
+@Getter
+@Setter
 public class Trajectory implements Serializable {
 
   private Double degree;

@@ -8,13 +8,16 @@
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
 
 
-@Data
-public class ErrorEntry implements Serializable {
+@Getter
+@Setter
+public class Error implements Serializable {
 
   /**
    * The type/name of the error.

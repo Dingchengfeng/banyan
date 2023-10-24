@@ -8,6 +8,8 @@
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -15,7 +17,8 @@ import java.io.Serializable;
  * Describes the state of an action already processed, currently being process or to be processed
  * by an AGV.
  */
-@Data
+@Getter
+@Setter
 public class ActionState implements Serializable {
 
   /**

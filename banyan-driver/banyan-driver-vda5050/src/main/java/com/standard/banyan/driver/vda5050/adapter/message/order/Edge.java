@@ -10,11 +10,14 @@ package com.standard.banyan.driver.vda5050.adapter.message.order;
 
 import com.standard.banyan.driver.vda5050.adapter.message.common.Action;
 import com.standard.banyan.driver.vda5050.adapter.message.common.Trajectory;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
 
-
+@Getter
+@Setter
 public class Edge implements Serializable {
 
   /**
@@ -80,6 +83,8 @@ public class Edge implements Serializable {
    * trajectory.
    */
   private Double orientation;
+
+  private OrientationType orientationType;
   /**
    * [Optional] Sets direction at junctions for line-guided vehicles, to be defined initially
    * (vehicle-individual).
@@ -111,5 +116,16 @@ public class Edge implements Serializable {
 
   private List<Action> actions;
 
+  public enum OrientationType {
+
+    /**
+     * 车头方向为相对于地图X轴正方向
+     */
+    GLOBAL,
+    /**
+     * 车头方向为相对于边的切线方向，默认值
+     */
+    TANGENTIAL;
+  }
 
 }

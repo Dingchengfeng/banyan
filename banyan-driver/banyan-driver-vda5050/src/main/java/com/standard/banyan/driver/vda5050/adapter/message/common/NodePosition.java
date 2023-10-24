@@ -7,6 +7,9 @@
  */
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 
@@ -15,6 +18,8 @@ import java.io.Serializable;
  * <p>
  * Each floor has its own map. All maps must use the same project specific global origin.
  */
+@Getter
+@Setter
 public class NodePosition implements Serializable {
 
   /**

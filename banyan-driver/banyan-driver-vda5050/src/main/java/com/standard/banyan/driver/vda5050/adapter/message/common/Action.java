@@ -8,12 +8,15 @@
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
 
 
-@Data
+@Getter
+@Setter
 public class Action implements Serializable {
 
   private String actionType;

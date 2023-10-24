@@ -1,6 +1,8 @@
 package com.standard.banyan.driver.vda5050.adapter.message.connection;
 
 import com.standard.banyan.driver.vda5050.adapter.message.Header;
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -8,6 +10,8 @@ import com.standard.banyan.driver.vda5050.adapter.message.Header;
  * @author dingchengfeng
  * @date 2023/10/23
  */
+@Getter
+@Setter
 public class Connection extends Header {
 
     public static final String JSON_SCHEMA = "connection.schema";

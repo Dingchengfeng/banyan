@@ -7,14 +7,18 @@
  */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
-import lombok.Data;
+import com.standard.banyan.driver.vda5050.adapter.message.common.BoundingBoxReference;
+import com.standard.banyan.driver.vda5050.adapter.message.common.LoadDimensions;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 /**
  * Load object that describes the load if the AGV has information about it.
  */
-@Data
+@Getter
+@Setter
 public class Load implements Serializable {
 
   /**
@@ -38,7 +42,7 @@ public class Load implements Serializable {
   /**
    * [Optional] Absolute weight of the load measured (in kg). Range: [0.0 ... infinity]
    */
-  private Long weight;
+  private Double weight;
   /**
    * [Optional] Point of reference for the location of the bounding box.
    * <p>

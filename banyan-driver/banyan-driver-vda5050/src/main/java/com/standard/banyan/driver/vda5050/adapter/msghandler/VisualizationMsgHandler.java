@@ -13,6 +13,5 @@ public class VisualizationMsgHandler implements MessageHandler {
     @Override
     public void handleMessage(String message) {
         Visualization visualization = JSON.parseObject(message, Visualization.class);
-
     }
 }

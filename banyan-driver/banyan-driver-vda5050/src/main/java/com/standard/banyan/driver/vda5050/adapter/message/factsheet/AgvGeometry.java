@@ -1,15 +1,17 @@
 package com.standard.banyan.driver.vda5050.adapter.message.factsheet;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 /**
- * @author dengxx
- * @description AGV几何结构的详细定义
+ * AGV几何结构的详细定义
+ * @author dingchengfeng
  * @date 2023/08/22
  */
-@Data
+@Getter
+@Setter
 public class AgvGeometry {
 
     /**
@@ -25,7 +27,8 @@ public class AgvGeometry {
      * 3D 中 AGV 包络曲线列表
      */
     private List<Envelope3d> envelopes3d;
-    @Data
+    @Getter
+    @Setter
     public static class WheelDefinition {
 
         private Type type;
@@ -58,7 +61,8 @@ public class AgvGeometry {
          */
         private String constraints;
 
-        @Data
+        @Getter
+        @Setter
         public static class Position {
             /**
              * AGV 坐标系中的 x 位置
@@ -73,11 +77,22 @@ public class AgvGeometry {
              */
             private Double theta;
         }
+
+        public enum Type {
+            DRIVE,
+            CASTER,
+            FIXED,
+            /**
+             * 麦克纳姆轮
+             */
+            MECANUM
+        }
     }
-    @Data
+    @Getter
+    @Setter
     public static class Envelope2d {
         /**
-         * 包络曲线级的名称
+         * 包络线集的名称
          */
         private String set;
         /**
@@ -85,10 +100,11 @@ public class AgvGeometry {
          */
         private List<PolygonPoint> polygonPoints;
         /**
-         * 预留字段
+         * 描述
          */
         private String description;
-        @Data
+        @Getter
+        @Setter
         public static class PolygonPoint {
             /**
              * 多边形点的 x 位置
@@ -101,10 +117,11 @@ public class AgvGeometry {
 
         }
     }
-    @Data
+    @Getter
+    @Setter
     public static class Envelope3d {
         /**
-         * 包络集合
+         * 包络线集的名称
          */
         private String set;
         /**
@@ -123,11 +140,5 @@ public class AgvGeometry {
          * 预留字段
          */
         private String description;
-    }
-    public enum Type {
-        DRIVE,
-        CASTER,
-        FIXED,
-        MECANUM
     }
 }

@@ -10,13 +10,16 @@ package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import com.standard.banyan.driver.vda5050.adapter.message.common.Trajectory;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 /**
  * Information about an edge the AGV still has to traverse.
  */
-@Data
+@Getter
+@Setter
 public class EdgeState implements Serializable {
 
   /**

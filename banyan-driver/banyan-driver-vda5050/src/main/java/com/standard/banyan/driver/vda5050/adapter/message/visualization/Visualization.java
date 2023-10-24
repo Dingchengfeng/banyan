@@ -12,6 +12,8 @@ import com.standard.banyan.driver.vda5050.adapter.message.common.AgvPosition;
 import com.standard.banyan.driver.vda5050.adapter.message.common.Velocity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Describes information for visualization purposes.
@@ -19,7 +21,8 @@ import lombok.EqualsAndHashCode;
  * Can be published at a higher rate if wanted. Since bandwidth may be expensive depening on the
  * update rate, all fields are optional.
  */
-@Data
+@Getter
+@Setter
 public class Visualization extends Header {
 
   /**

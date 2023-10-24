@@ -8,13 +8,16 @@
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 /**
  * Describes an AGVs battery state.
  */
-@Data
+@Getter
+@Setter
 public class BatteryState implements Serializable {
 
   /**
@@ -31,7 +34,7 @@ public class BatteryState implements Serializable {
   /**
    * [Optional] State of health (in percent). Range: [0 ... 100]
    */
-  private Long batteryHealth;
+  private Short batteryHealth;
   /**
    * Whether the AGV is charging or nor.
    */

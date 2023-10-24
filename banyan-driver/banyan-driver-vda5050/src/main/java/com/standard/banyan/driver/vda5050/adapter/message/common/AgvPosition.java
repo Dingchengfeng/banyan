@@ -8,13 +8,17 @@
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 
-@Data
+@Getter
+@Setter
 public class AgvPosition implements Serializable {
 
+  private Boolean positionInitialized;
 
   private Double x;
 
@@ -25,8 +29,6 @@ public class AgvPosition implements Serializable {
   private String mapId;
 
   private String mapDescription;
-
-  private Boolean positionInitialized;
 
   private Double localizationScore;
 

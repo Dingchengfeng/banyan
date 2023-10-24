@@ -11,10 +11,13 @@ import com.standard.banyan.driver.vda5050.adapter.message.Header;
 import com.standard.banyan.driver.vda5050.adapter.message.common.AgvPosition;
 import com.standard.banyan.driver.vda5050.adapter.message.common.Velocity;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class State extends Header {
 
   /**
@@ -128,19 +131,19 @@ public class State extends Header {
    */
   private OperatingMode operatingMode;
   /**
-   * List of {@link ErrorEntry} objects.
+   * List of {@link Error} objects.
    * <p>
    * All active errors of the AGV should be in this list. An empty array indicates that the AGV has
    * no active errors.
    */
-  private List<ErrorEntry> errors;
+  private List<Error> errors;
   /**
-   * List of {@link InfoEntry} objects.
+   * List of {@link Info} objects.
    * <p>
    * This should only be used for visualization or debugging – it must not be used for logic in
    * master control. An empty list indicates that the AGV has no information.
    */
-  private List<InfoEntry> information;
+  private List<Info> information;
   /**
    * Contains all safety-related information.
    */
