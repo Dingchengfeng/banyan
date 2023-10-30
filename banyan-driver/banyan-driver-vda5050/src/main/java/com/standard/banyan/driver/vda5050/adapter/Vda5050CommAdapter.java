@@ -34,12 +34,12 @@ public class Vda5050CommAdapter implements CommAdapter {
     public Vda5050CommAdapter(AmrInfo amrInfo, DefaultMqttClient mqttClient) {
         this.amrInfo = amrInfo;
         this.mqttClient = mqttClient;
-        this.orderTopic = new PublishTopic(Topic.Qos.AT_MOST_ONCE,false,
-            String.format(TopicFormat.VDA5050_TOPIC_FORMAT,"v2",
-                amrInfo.getManufacturer(),amrInfo.getSerialNumber(),"order"));
-        this.instantActionsTopic = new PublishTopic(Topic.Qos.AT_MOST_ONCE,false,
-            String.format(TopicFormat.VDA5050_TOPIC_FORMAT,"v2",
-                amrInfo.getManufacturer(),amrInfo.getSerialNumber(),"instantActions"));
+        this.orderTopic = new PublishTopic(Topic.Qos.AT_MOST_ONCE, false,
+            String.format(TopicFormat.VDA5050_TOPIC_FORMAT, Protocol.VERSION_PREFIX + Protocol.MAJOR,
+                amrInfo.getManufacturer(), amrInfo.getSerialNumber(), "order"));
+        this.instantActionsTopic = new PublishTopic(Topic.Qos.AT_MOST_ONCE, false,
+            String.format(TopicFormat.VDA5050_TOPIC_FORMAT, Protocol.VERSION_PREFIX + Protocol.MAJOR,
+                amrInfo.getManufacturer(), amrInfo.getSerialNumber(), "instantActions"));
     }
 
     @Override

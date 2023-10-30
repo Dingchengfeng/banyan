@@ -8,6 +8,7 @@ import java.time.Instant;
 
 /**
  * @author dingchengfeng
+ * schema校验：https://www.jsonschemavalidator.net/
  * @description TODO
  * @date 2023/10/23
  */
@@ -22,7 +23,7 @@ public abstract class Header implements Serializable {
     /**
      * 时间戳 ISO8601  (I.e. YYYY-MM-DDTHH:mm:ss.sssZ)
      */
-    private Instant timestamp;
+    private String timestamp;
     /**
      * 协议版本 [Major].[Minor].[Patch]. eg:2.0.1
      */

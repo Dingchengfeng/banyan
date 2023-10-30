@@ -9,6 +9,7 @@ package com.standard.banyan.driver.vda5050.adapter.message.order;
 
 
 import com.standard.banyan.driver.vda5050.adapter.message.Header;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +20,10 @@ import java.util.List;
  */
 @Getter
 @Setter
+@Builder
 public class Order extends Header {
+  public Order() {
+  }
 
   /**
    * The path to the JSON schema file.

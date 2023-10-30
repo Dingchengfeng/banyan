@@ -16,7 +16,8 @@ import java.util.List;
  **/
 public class Vda5050CommAdapterFactory implements CommAdapterFactory {
     private DefaultMqttClient defaultMqttClient;
-    private static final String ADAPTER_KEY = "amr_vda5050_2.0.0";
+    private static final String ADAPTER_KEY = String.join("_",Protocol.ADAPT_DEVICE,Protocol.NAME,Protocol.VERSION);
+
     @Override
     public void init(DriverConfig driverConfig, MessageHandler messageHandler) {
         this.defaultMqttClient = new DefaultMqttClient(driverConfig.getBrokerUrl(),driverConfig.getClientId(),driverConfig.getUsername(),driverConfig.getPassword());
