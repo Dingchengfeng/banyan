@@ -7,19 +7,19 @@ import java.util.Map;
  * @date 2023/10/21
  **/
 public abstract class AbstractCommand implements Command {
-    private String commandWord;
+    private final String commandWord;
 
-    private String commandId;
+    private final String commandId;
 
-    private String commandDesc;
+    private final String commandDesc;
 
-    private Map<String,CommandParam> commandParamMap;
+    private final Map<String, ParamDef> paramDefMap;
 
-    public AbstractCommand(String commandWord, String commandId, String commandDesc, Map<String,CommandParam> commandParamMap) {
+    protected AbstractCommand(String commandWord, String commandId, String commandDesc, Map<String, ParamDef> paramDefMap) {
         this.commandWord = commandWord;
         this.commandId = commandId;
         this.commandDesc = commandDesc;
-        this.commandParamMap = commandParamMap;
+        this.paramDefMap = paramDefMap;
     }
 
     @Override
@@ -38,7 +38,7 @@ public abstract class AbstractCommand implements Command {
     }
 
     @Override
-    public Map<String,CommandParam> getCommandParams() {
-        return commandParamMap;
+    public Map<String, ParamDef> getCommandDef() {
+        return paramDefMap;
     }
 }

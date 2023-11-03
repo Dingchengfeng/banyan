@@ -12,21 +12,19 @@ import java.util.Map;
 public class InitPosition extends AbstractCommand {
     private static final String COMMAND = "initPosition";
     private static final String DESC = "初始化位置信息";
-    private static final List<CommandParam> COMMAND_PARAM_LIST = new ArrayList<>();
+    private Map<String,Object> params;
+    private static final Map<String,ParamDef> PARAM_DEF_MAP = new HashMap<>(8);
     static {
-        COMMAND_PARAM_LIST.add(new CommandParam("x","Float","x坐标",true));
-        COMMAND_PARAM_LIST.add(new CommandParam("y","Float","y坐标",true));
-        COMMAND_PARAM_LIST.add(new CommandParam("theta","Float","角度",true));
-        COMMAND_PARAM_LIST.add(new CommandParam("mapId","Sting","地图id",true));
-        COMMAND_PARAM_LIST.add(new CommandParam("lastNodeId","Sting","最后所在节点",true));
+        PARAM_DEF_MAP.put("x",new ParamDef("x", ParamDef.ValueType.STRING,"x坐标",true));
+        PARAM_DEF_MAP.put("y",new ParamDef("y", ParamDef.ValueType.FLOAT,"y坐标",true));
+        PARAM_DEF_MAP.put("theta",new ParamDef("theta", ParamDef.ValueType.FLOAT,"角度",true));
+        PARAM_DEF_MAP.put("mapId",new ParamDef("mapId", ParamDef.ValueType.STRING,"地图id",true));
+        PARAM_DEF_MAP.put("lastNodeId",new ParamDef("lastNodeId", ParamDef.ValueType.STRING,"最后所在节点",true));
     }
 
     public InitPosition(String commandId, Map<String,Object> params) {
-        super(COMMAND,commandId,DESC,buildParam(params));
-    }
-
-    private static Map<String,CommandParam> buildParam(Map<String,Object> params){
-        return new HashMap<>(8);
+        super(COMMAND,commandId,DESC,PARAM_DEF_MAP);
+        this.params = params;
     }
 
 }

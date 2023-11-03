@@ -26,22 +26,27 @@ public interface Command {
     String getCommandDesc();
 
     /**
-     * 获取指令参数
-     * @return 指令参数
+     * 获取参数定义
+     * @return 参数定义
      */
-    Map<String,CommandParam> getCommandParams();
+    Map<String, ParamDef> getCommandDef();
 
-    class CommandParam {
+    class ParamDef {
         private String paramKey;
-        private String valueType;
+        private ValueType valueType;
         private String paramDesc;
-        private boolean isRequired;
+        private boolean isOptional;
 
-        public CommandParam(String paramKey, String valueType, String paramDesc, boolean isRequired) {
+        public ParamDef(String paramKey, ValueType valueType, String paramDesc, boolean isOptional) {
             this.paramKey = paramKey;
             this.valueType = valueType;
             this.paramDesc = paramDesc;
-            this.isRequired = isRequired;
+            this.isOptional = isOptional;
+        }
+
+        public enum ValueType {
+            STRING,
+            FLOAT
         }
     }
 
