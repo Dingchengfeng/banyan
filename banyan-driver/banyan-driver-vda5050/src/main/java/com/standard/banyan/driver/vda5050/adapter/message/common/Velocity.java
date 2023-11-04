@@ -13,22 +13,22 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * The AGV's velocity in vehicle coordinates.
+ * 速度
  */
 @Getter
 @Setter
 public class Velocity implements Serializable {
 
   /**
-   * [Optional] The AGV's velocity in its x direction.
+   * [可选] x方向速度.
    */
   private Double vx;
   /**
-   * [Optional] The AGV's velocity in its y direction.
+   * [可选] y方向速度.
    */
   private Double vy;
   /**
-   * [Optional] The AGV's turning speed around its z axis.
+   * [可选] 角速度.
    */
   private Double omega;
 

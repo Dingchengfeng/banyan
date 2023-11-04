@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Getter;
@@ -14,16 +7,25 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * The trajectory of an AGV described as NURBS.
+ * 轨迹.
  */
 @Getter
 @Setter
 public class Trajectory implements Serializable {
 
+  /**
+   * 次数[1,∞]，默认1。为什么定义成double
+   */
   private Double degree;
 
+  /**
+   * 节点向量
+   */
   private List<Double> knotVector;
 
+  /**
+   * 控制点
+   */
   private List<ControlPoint> controlPoints;
 
 

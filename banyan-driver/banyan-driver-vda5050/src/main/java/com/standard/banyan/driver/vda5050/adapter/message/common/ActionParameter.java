@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Getter;
@@ -14,19 +7,20 @@ import java.io.Serializable;
 
 
 /**
- * Additional parameters for an {@link Action}.
- */
+ * 动作参数
+ * @author dingchengfeng
+ * @date 2023/10/21
+ **/
 @Getter
 @Setter
 public class ActionParameter implements Serializable {
 
   /**
-   * The key of the action parameter.
+   * 键
    */
   private String key;
   /**
-   * The value of the action parameter.
-   * Can be an array, boolean, number or string.
+   * 值
    */
   private Object value;
 

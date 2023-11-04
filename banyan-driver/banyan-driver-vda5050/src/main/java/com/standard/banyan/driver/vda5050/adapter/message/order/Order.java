@@ -16,28 +16,38 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * Defines an order sent from master control to the AGV.
+ * 订单
+ * @author dingchengfeng
  */
 @Getter
 @Setter
-@Builder
 public class Order extends Header {
-  public Order() {
-  }
 
-  /**
-   * The path to the JSON schema file.
-   */
   public static final String JSON_SCHEMA = "order.schema";
 
+  /**
+   * id
+   */
   private String orderId;
 
+  /**
+   * 从0开始，每次追加加1
+   */
   private Long orderUpdateId;
 
+  /**
+   * [可选]，区域id
+   */
   private String zoneSetId;
 
+  /**
+   * 节点
+   */
   private List<Node> nodes;
 
+  /**
+   * 边
+   */
   private List<Edge> edges;
 
 }

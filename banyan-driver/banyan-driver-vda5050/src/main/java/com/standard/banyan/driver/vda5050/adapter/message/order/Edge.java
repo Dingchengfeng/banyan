@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.order;
 
 
@@ -21,99 +14,73 @@ import java.util.List;
 public class Edge implements Serializable {
 
   /**
-   * Unique edge identification.
+   * 唯一id
    */
   private String edgeId;
   /**
-   * Number to track the sequence of nodes and edges in an order and to simplify order updates.
-   * <p>
-   * The variable {@code sequenceId} runs across all nodes and edges of the same order and is reset
-   * when a new {@code orderId} is issued.
+   * 每个order从0开始，随node和edge递增
    */
   private Long sequenceId;
   /**
-   * [Optional] Additional information on the edge.
+   * [可选] 描述
    */
   private String edgeDescription;
   /**
-   * Whether the node is released or not.
-   * <p>
-   * Interpretation of values:
-   * <ul>
-   * <li>{@code true} (released) indicates that the node is part of the base.</li>
-   * <li>{@code false} (planned) indicates that the node is part of the horizon.</li>
-   * </ul>
+   * 是否已获得路权
    */
   private Boolean released;
   /**
-   * The {@code nodeId} of the start node.
+   * 起点
    */
   private String startNodeId;
   /**
-   * The {@code nodeId} of the end node.
+   * 终点
    */
   private String endNodeId;
   /**
-   * [Optional] Permitted maximum speed on the edge(in m/s).
-   * <p>
-   * Speed is defined by the fastest measurement of the vehicle.
+   * [可选] 最大线速度
    */
   private Double maxSpeed;
   /**
-   * [Optional] Permitted maximum height of the vehicle on the edge, including the load (in m).
+   * [可选] 最大高度
    */
   private Double maxHeight;
   /**
-   * [Optional] Permitted minimal height of the load handling device on the edge (in m).
+   * [可选] 最小高度
    */
   private Double minHeight;
   /**
-   * [Optional] Orientation of the AGV on the edge.
-   * <p>
-   * The value {@code orientationType} defines if it has to be interpreted relative to the global
-   * project specific map coordinate system or tangential to the edge. In case of interpreted
-   * tangential to the edge 0.0 = forwards and PI = backwards.
-   * <p>
-   * If AGV starts in different orientation, rotate the vehicle on the edge to the desired
-   * orientation if {@code rotationAllowed} is set to {@code true}. If {@code rotationAllowed} is
-   * {@code false}, rotate before entering the edge. If that is not possible, reject the order.
-   * <p>
-   * If no trajectory is defined, apply the rotation to the direct path between the two connecting
-   * nodes of the edge. If a trajectory is defined for the edge, apply the orientation to the
-   * trajectory.
+   * [可选] 在边上行驶的车头朝向
    */
   private Double orientation;
-
+  /**
+   * 朝向类型
+   */
   private OrientationType orientationType;
   /**
-   * [Optional] Sets direction at junctions for line-guided vehicles, to be defined initially
-   * (vehicle-individual).
-   * <p>
-   * Example: left, right, straight.
+   * [可选] 线导航车辆在路口设置方向
    */
   private String direction;
   /**
-   * [Optional] Whether rotation on the edge is allowed or not.
+   * [可选] 边上是否允许旋转.
    */
   private Boolean rotationAllowed;
   /**
-   * [Optional] Maximum rotation speed (in rad/s).
+   * [可选] 最大角速度.
    */
   private Double maxRotationSpeed;
   /**
-   * [Optional] Length of the path from {@code startNode} to {@code endNode} (in m).
-   * <p>
-   * This value is used by line-guided AGVs to decrease their speed before reaching a stop position.
+   * [可选] edge的长度，线导航车用于判段何时减速.
    */
   private Double length;
   /**
-   * [Optional] Trajectory object for this edge as NURBS.
-   * <p>
-   * Defines the curve on which the AGV should move between {@code startNode} and {@code endNode}.
-   * Can be omitted if an AGV cannot process trajectories or if an AGV plans its own trajectory.
+   * [可选] 轨迹
    */
   private Trajectory trajectory;
 
+  /**
+   * 动作
+   */
   private List<Action> actions;
 
   public enum OrientationType {

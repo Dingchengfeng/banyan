@@ -13,22 +13,23 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * Dimensions of the load's bounding box.
+ * 负载边界尺寸.
+ * @author dingchengfeng
  */
 @Getter
 @Setter
 public class LoadDimensions implements Serializable {
 
   /**
-   * Absolute length of the loads bounding box (in m).
+   * 长.
    */
   private Double length;
   /**
-   * Absolute width of the loads bounding box (in m).
+   * 框.
    */
   private Double width;
   /**
-   * [Optional] Absolute height of the loads bounding box (in m).
+   * [可选] 高.
    */
   private Double height;
 

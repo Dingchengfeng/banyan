@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import com.standard.banyan.driver.vda5050.adapter.message.common.BoundingBoxReference;
@@ -15,43 +8,34 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * Load object that describes the load if the AGV has information about it.
+ * 负载.
  */
 @Getter
 @Setter
 public class Load implements Serializable {
 
   /**
-   * [Optional] Unique identification number of the load. (E.g. barcode or RFID).
-   * <p>
-   * Empty, if the AGV can identify the load but didn't identify the load, yet. Optional, if the
-   * AGV cannot identify the load.
+   * [可选] 负载的唯一标识（比如条码或RFID）
    */
   private String loadId;
   /**
-   * [Optional] Type of the load.
+   * [可选] 负载类型
    */
   private String loadType;
   /**
-   * [Optional] Indicates which load handling/carrying unit of the AGV is used. (E.g. in case the
-   * AGV has multiple spots/positions to carry loads.
-   * <p>
-   * Examples: "front", "back", "positionC1". Optional for vehicles with only one load position.
+   * [可选] 指示agv使用哪个负载单元承载
    */
   private String loadPosition;
   /**
-   * [Optional] Absolute weight of the load measured (in kg). Range: [0.0 ... infinity]
+   * [可选] 负载重量
    */
   private Double weight;
   /**
-   * [Optional] Point of reference for the location of the bounding box.
-   * <p>
-   * The point of reference is always the center of the bounding box's bottom surface
-   * (at height = 0) and is described in coordinates of the AGV's coordinate system.
+   * [可选] 边界框位置参考点
    */
   private BoundingBoxReference boundingBoxReference;
   /**
-   * [Optional] Dimensions of the load's bounding box (in m).
+   * [可选] 负载边界框的尺寸
    */
   private LoadDimensions loadDimensions;
 

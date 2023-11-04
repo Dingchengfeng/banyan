@@ -4,12 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.time.Instant;
 
 /**
  * @author dingchengfeng
  * schema校验：https://www.jsonschemavalidator.net/
- * @description TODO
  * @date 2023/10/23
  */
 @Getter

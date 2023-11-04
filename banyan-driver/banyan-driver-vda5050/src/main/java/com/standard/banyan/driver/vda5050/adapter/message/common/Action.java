@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.common;
 
 import lombok.Getter;
@@ -13,33 +6,52 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+ * 动作指令
+ * @author dingchengfeng
+ * @date 2023/10/21
+ **/
 @Getter
 @Setter
 public class Action implements Serializable {
 
+  /**
+   * 动作指令字
+   */
   private String actionType;
 
+  /**
+   * id
+   */
   private String actionId;
 
+  /**
+   *  [可选]描述
+   */
   private String actionDescription;
 
+  /**
+   * 阻塞类型
+   */
   private BlockingType blockingType;
 
+  /**
+   * [可选]参数
+   */
   private List<ActionParameter> actionParameters;
 
   public enum BlockingType {
 
     /**
-     * Action can be executed in parallel with other actions and while the vehicle is driving.
+     * 可以和动作、移动并行
      */
     NONE,
     /**
-     * Action can be executed in parallel with other actions. Vehicle must not drive.
+     * 可以和动作并行，不得与移动并行
      */
     SOFT,
     /**
-     * Action must not be executed in parallel with other actions. Vehicle must not drive.
+     * 不能并行
      */
     HARD;
   }

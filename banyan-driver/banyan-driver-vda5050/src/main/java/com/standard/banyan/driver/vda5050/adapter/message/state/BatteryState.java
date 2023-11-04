@@ -13,33 +13,32 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * Describes an AGVs battery state.
+ * 电池状态
+ * @author dingchengfeng
  */
 @Getter
 @Setter
 public class BatteryState implements Serializable {
 
   /**
-   * State of Charge (in percent). Range: [0 ... 100]
-   * <p>
-   * If an AGV only provides values for good or bad battery levels, these will be indicated
-   * as 20% (bad) and 80% (good).
+   * 电量，[0.0,100.0]
+   *
    */
   private Double batteryCharge;
   /**
-   * [Optional] The battery voltage (in V).
+   * [可选] 电压
    */
   private Double batteryVoltage;
   /**
-   * [Optional] State of health (in percent). Range: [0 ... 100]
+   * [可选] 健康度,[0,100]
    */
   private Short batteryHealth;
   /**
-   * Whether the AGV is charging or nor.
+   * 是否充电中
    */
   private Boolean charging;
   /**
-   * [Optional] Estimated reach with actual state of charge. Range: [0 ... infinity]
+   * [可选] Estimated reach with actual state of charge. Range: [0,∞]
    */
   private Long reach;
 

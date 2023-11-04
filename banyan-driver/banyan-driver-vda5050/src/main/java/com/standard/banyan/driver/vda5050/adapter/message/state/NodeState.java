@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import com.standard.banyan.driver.vda5050.adapter.message.common.NodePosition;
@@ -14,41 +7,32 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * Information about a node the AGV still has to traverse.
+ * 未走完的点.
+ * @author dingchengfeng
  */
 @Getter
 @Setter
 public class NodeState implements Serializable {
 
   /**
-   * Unique node identification.
+   * id
    */
   private String nodeId;
   /**
-   * Sequence id to differentiate between multiple nodes with the same {@code nodeId}.
+   * Sequence
    */
   private Long sequenceId;
   /**
-   * [Optional] Additional information on the node.
+   * [可选] 描述
    */
   private String nodeDescription;
   /**
-   * [Optional] The node position.
-   * <p>
-   * Can be sent additionally, e.g. for debugging purposes.
+   * [可选] 位置
    */
   private NodePosition nodePosition;
   /**
-   * Whether the node is released or not.
-   * <p>
-   * Interpretation of values:
-   * <ul>
-   * <li>{@code true} (released) indicates that the node is part of the base.</li>
-   * <li>{@code false} (planned) indicates that the node is part of the horizon.</li>
-   * </ul>
+   * 是否有路权
    */
   private Boolean released;
-
-
 
 }

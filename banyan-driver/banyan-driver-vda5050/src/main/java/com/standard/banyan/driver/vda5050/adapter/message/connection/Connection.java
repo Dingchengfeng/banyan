@@ -16,6 +16,9 @@ public class Connection extends Header {
 
     public static final String JSON_SCHEMA = "connection.schema";
 
+    /**
+     * 状态
+     */
     private State connectionState;
 
     public enum State {

@@ -1,5 +1,6 @@
 package com.standard.banyan.driver.vda5050.adapter.message.factsheet;
 
+import com.standard.banyan.driver.vda5050.adapter.message.common.ValueDataType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -95,27 +96,22 @@ public class ProtocolFeatures {
         }
     }
 
-    /**
-     * 参数的数据类型
-     */
-    public enum ValueDataType {
-        BOOL,
-        INTEGER,
-        LONG,
-        FLOAT,
-        DOUBLE,
-        STRING,
-        ARRAY,
-        OBJECT,
-
-    }
 
     /**
      * 使用此action的允许范围
      */
     public enum ActionScope {
+        /**
+         * 立即执行
+         */
         INSTANT,
+        /**
+         * 节点
+         */
         NODE,
+        /**
+         * 边
+         */
         EDGE
     }
 }

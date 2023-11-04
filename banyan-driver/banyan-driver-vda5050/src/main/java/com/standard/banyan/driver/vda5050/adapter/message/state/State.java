@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import com.standard.banyan.driver.vda5050.adapter.message.Header;
@@ -15,136 +8,97 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * 状态
+ * @author dingchengfeng
+ */
 @Getter
 @Setter
 public class State extends Header {
 
-  /**
-   * The path to the JSON schema file.
-   */
   public static final String JSON_SCHEMA = "state.schema";
   /**
-   * Unique order identification of the current order or the previous finished order.
-   * <p>
-   * The {@code orderId} is kept until a new order is received. Empty string if no previous
-   * {@code orderId} is available.
+   * 当前执行的订单id；若无，则传上一个完成的订单id；若无，则传""
    */
   private String orderId;
   /**
-   * Order update identification to identify that an order update has been accepted by the AGV.
-   * <p>
-   * {@code 0}, if no previous {@code orderUpdateId} is available.
+   * order更新id，表明该order的更新已经被AGV接受。如orderUpdateId不可用则填"0"
    */
   private Long orderUpdateId;
   /**
-   * [Optional] Unique ID of the zone set that the AGV currently uses for path planning.
-   * <p>
-   * Must be the same as the one used in the order, otherwise the AGV is to reject the order. If the
-   * AGV does not use zones, this field can be omitted.
+   * [可选] 区域集id,与order保持一致
    */
   private String zoneSetId;
   /**
-   * {@code nodeId} of the last reached node or, if AGV is currently on a node, {@code nodeId} of
-   * the current node.
-   * <p>
-   * Empty string if no {@code lastNodeId} is available.
+   * AGV最后到达的节点id,可以为当前节点，没有就默认""
    */
   private String lastNodeId;
   /**
-   * {@code sequenceId} of the last reached node or, if the AGV is currently on a node,
-   * {@code sequenceId} of the current node.
-   * <p>
-   * {@code 0}, if no {@code lastNodeSequenceId} is available.
+   * AGV最后到达的节点sequenceId,可以为当前节点，没有就默认0
    */
   private Long lastNodeSequenceId;
   /**
-   * List of {@link NodeState} objects that need to be traversed for fulfilling the order.
-   * <p>
-   * Empty, if the AGV is idle.
+   * order中待完成的NodeState数组
+   * 没有就默认空数组
    */
   private List<NodeState> nodeStates;
   /**
-   * List of {@link EdgeState} objects that need to be traversed for fulfilling the order.
-   * <p>
-   * Empty, if the AGV is idle.
+   * order中待完成遍历的EdgeState数组
+   * 没有就默认空数组
    */
   private List<EdgeState> edgeStates;
   /**
-   * [Optional] Current position of the AGV on the map.
-   * <p>
-   * Can only be omitted for AGVs without the capability to localize themselves, e.g. line-guided
-   * AGVs.
+   * [可选] 位置
    */
   private AgvPosition agvPosition;
   /**
-   * [Optional] The AGV's velocity in vehicle coordinates.
+   * [可选] 速度
    */
   private Velocity velocity;
   /**
-   * [Optional] Loads that are currently handled by the AGV.
-   * <p>
-   * If the AGV cannot reason about load state, leave the list out of the state. If the AGV can
-   * reason about the load state, but the list is empty, the AGV is considered unloaded.
+   * [可选] 负载
    */
   private List<Load> loads;
   /**
-   * Whether the AGV is driving and/or rotating.
-   * <p>
-   * Other movements of the AGV (e.g. lift movements) are not included here.
+   * true,表明当前agv在行驶或旋转
    */
   private Boolean driving;
   /**
-   * [Optional] Whether the AGV is currently in a paused state.
-   * <p>
-   * An AGV can be in a paused state e.g. because of the push of a physical button on the AGV or
-   * because of an instant action.
+   * [可选] true,agv处于暂停状态
    */
   private Boolean paused;
   /**
-   * [Optional] Whether the AGV is requesting a new base or not.
-   * <p>
-   * {@code true}, if the AGV is almost at the end of the base and will reduce speed if no new base
-   * is transmitted.
+   * [可选] true，agv即将走完base。主控系统需要下发新的base,否则agv会减速。
    */
   private Boolean newBaseRequest;
   /**
-   * [Optional] Used by line guided vehicles to indicate the distance it has been driving past
-   * the {@code lastNodeId} (in m).
+   * [可选] 线导航车辆用来指示它已经驶过lastNodeId的距离
    */
   private Double distanceSinceLastNode;
   /**
-   * List of the current actions and the actions which are yet to be finished.
-   * <p>
-   * This may include actions from previous nodes that are still in progress. When an action is
-   * completed, an updated state message is published with the actions {@code actionStatus} set to
-   * finished and if applicable with the corresponding {@code resultDescription}. The action state
-   * is kept until a new order is received.
+   * 包含当前action和待执行的action的列表。action完成后，需要更新state并发布，其中actionStatus需要设置为FINISHED。
+   * actionState需要一直保留，直到收到一个新的order
    */
   private List<ActionState> actionStates;
   /**
-   * Contains all battery-related information.
+   * 电池信息
    */
   private BatteryState batteryState;
   /**
-   * Current operating mode of the AGV.
+   * 操作模式
    */
   private OperatingMode operatingMode;
   /**
-   * List of {@link Error} objects.
-   * <p>
-   * All active errors of the AGV should be in this list. An empty array indicates that the AGV has
-   * no active errors.
+   * Error数组，所有当前激活的错误。
+   * todo 如果是指令自身的错误，是否在下一个指令到达后清除？
    */
   private List<Error> errors;
   /**
-   * List of {@link Info} objects.
-   * <p>
-   * This should only be used for visualization or debugging – it must not be used for logic in
-   * master control. An empty list indicates that the AGV has no information.
+   * Info数组
    */
   private List<Info> information;
   /**
-   * Contains all safety-related information.
+   * 包含所有安全相关信息
    */
   private SafetyState safetyState;
 

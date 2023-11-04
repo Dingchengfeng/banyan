@@ -1,36 +1,29 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
-
 /**
- * Defines the different state of an {@link org.opentcs.commadapter.vehicle.vda5050.v2_0.message.state.ActionState}.
+ * 动作状态
+ * @author dingchengfeng
  */
 public enum ActionStatus {
 
   /**
-   * Waiting.
+   * 等待.
    */
   WAITING,
   /**
-   * Initializing.
+   * 初始化.
    */
   INITIALIZING,
   /**
-   * Running.
+   * 运行中.
    */
   RUNNING,
   /**
-   * Finished.
+   * 完成.
    */
   FINISHED,
   /**
-   * Failed.
+   * 失败.
    */
   FAILED;
 }

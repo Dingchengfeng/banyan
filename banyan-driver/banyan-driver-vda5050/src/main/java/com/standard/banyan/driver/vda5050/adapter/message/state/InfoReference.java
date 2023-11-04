@@ -13,18 +13,18 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * Holds the information reference (e.g. orderId, orderUpdateId, actionId) as key-value pairs.
+ * 信息来源
  */
 @Getter
 @Setter
 public class InfoReference implements Serializable {
 
   /**
-   * The reference key.
+   * 键
    */
   private String referenceKey;
   /**
-   * The reference value.
+   * 值
    */
   private String referenceValue;
 

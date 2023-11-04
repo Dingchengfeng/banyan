@@ -1,10 +1,3 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 import lombok.Getter;
@@ -14,28 +7,26 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Represents information messages.
- * <p>
- * Information messages are only for visualization/debugging.
+ * 用于调试或可视化的信息
  */
 @Getter
 @Setter
 public class Info implements Serializable {
 
   /**
-   * The type/name of the information.
+   * 信息类型/名称
    */
   private String infoType;
   /**
-   * [Optional] Verbose description of the information.
+   * [可选] 描述
    */
   private String infoDescription;
   /**
-   * The level of the information.
+   * 等级
    */
   private InfoLevel infoLevel;
   /**
-   * [Optional] List of information references.
+   * [可选] 信息来源
    */
   private List<InfoReference> infoReferences;
 

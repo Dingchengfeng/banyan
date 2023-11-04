@@ -1,22 +1,17 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 /**
+ * 等级
+ * @author dingchengfeng
  */
 public enum InfoLevel {
 
   /**
-   * Used for visualization.
+   * 用于可视化
    */
   INFO,
   /**
-   * Used for debugging.
+   * 用于调试
    */
   DEBUG;
 }

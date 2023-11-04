@@ -1,29 +1,29 @@
-/**
- * Copyright (c) The openTCS Authors.
- *
- * This program is free software and subject to the MIT license. (For details,
- * see the licensing information (LICENSE.txt) you should have received with
- * this copy of the software.)
- */
 package com.standard.banyan.driver.vda5050.adapter.message.state;
 
 
+/**
+ * 急停
+ * @author dingchengfeng
+ */
 public enum EStop {
 
   /**
    * Auto-acknowledgeable e-stop is activated. (E.g. by bumper or protective field.)
+   * 自动触发的急停？
    */
   AUTOACK,
   /**
    * E-stop has to be acknowledged manually at the vehicle.
+   * 手动触发的急停？
    */
   MANUAL,
   /**
    * Facility e-stop has to be acknowledged remotely.
+   * 远程触发的急停？
    */
   REMOTE,
   /**
-   * No e-stop activated.
+   * 没有急停
    */
   NONE;
 }
