@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 用于调试或可视化的信息
+ * @author dingchengfeng
  */
 @Getter
 @Setter
