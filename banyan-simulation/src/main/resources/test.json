@@ -1,0 +1,158 @@
+{
+ "meta": {
+   "sizeX": 3000,
+   "sizeY": 3000,
+   "zeroOffsetY": 1499,
+   "zeroOffsetX": 1499,
+   "modified_timestamp": 0,
+   "created_timestamp": 0,
+   "resolution": 0.02,
+   "version":1,
+   "floor":0,
+   "name":"test"
+  },
+ "data": {
+  "nodes": [
+   {
+    "y": -2.020,
+    "x": -3.980,
+    "id": 1
+   },
+   {
+    "y": -2.020,
+    "x": -2.020,
+    "id": 2
+   },
+   {
+    "y": -0.020,
+    "x": 0.010,
+    "id": 3
+   },
+   {
+    "y": -0.020,
+    "x": 2.030,
+    "id": 4
+   },
+   {
+    "y": 2.010,
+    "x": -3.980,
+    "id": 5
+   },
+   {
+    "y": 2.010,
+    "x": 2.030,
+    "id": 6
+   }
+  ],
+  "edges": [
+   {
+    "id": 1,
+    "type": "LINE",
+    "sNode": 1,
+    "eNode": 2,
+    "cy": 0,
+    "cx": 0,
+    "dx": 0,
+    "dy": 0,
+    "sFacing": 0,
+    "eFacing": 0,
+    "robotDirection": "FORWARD",
+    "limitV": 0,
+    "cost": 1.960
+   },
+   {
+    "id": 2,
+    "type": "LINE",
+    "sNode": 3,
+    "eNode": 4,
+    "cy": 0,
+    "cx": 0,
+    "dx": 0,
+    "dy": 0,
+    "sFacing": 0,
+    "eFacing": 0,
+    "robotDirection": "FORWARD",
+    "limitV": 0,
+    "cost": 2.020
+   },
+   {
+    "id": 3,
+    "type": "BEZIER",
+    "sNode": 2,
+    "eNode": 3,
+    "cy": -2.020,
+    "cx": -1.000,
+    "dx": -1.000,
+    "dy": -0.020,
+    "sFacing": 0,
+    "eFacing": 0,
+    "robotDirection": "FORWARD",
+    "limitV": 0,
+    "cost": 3.122
+   },
+   {
+    "id": 4,
+    "type": "LINE",
+    "sNode": 4,
+    "eNode": 6,
+    "cy": 0,
+    "cx": 0,
+    "dx": 0,
+    "dy": 0,
+    "sFacing": 1.570,
+    "eFacing": 1.570,
+    "robotDirection": "FORWARD",
+    "limitV": 0,
+    "cost": 2.030
+   },
+   {
+    "id": 5,
+    "type": "LINE",
+    "sNode": 6,
+    "eNode": 5,
+    "cy": 0,
+    "cx": 0,
+    "dx": 0,
+    "dy": 0,
+    "sFacing": 3.141,
+    "eFacing": 3.141,
+    "robotDirection": "FORWARD",
+    "limitV": 0,
+    "cost": 6.010
+   },
+   {
+    "id": 6,
+    "type": "LINE",
+    "sNode": 5,
+    "eNode": 1,
+    "cy": 0,
+    "cx": 0,
+    "dx": 0,
+    "dy": 0,
+    "sFacing": 4.712,
+    "eFacing": 4.712,
+    "robotDirection": "FORWARD",
+    "limitV": 0,
+    "cost": 4.030
+   }
+  ],
+  "stations": [
+    {
+    "id": 1,
+    "type": "WORK",
+    "name": "1",
+    "nodeId": 1,
+    "theta": 0,
+    "priority": 0
+    },
+    {
+     "id": 2,
+    "type": "WORK",
+    "name": "2",
+    "nodeId": 2,
+    "theta": 0,
+    "priority": 0
+    }
+  ]
+ }
+}
