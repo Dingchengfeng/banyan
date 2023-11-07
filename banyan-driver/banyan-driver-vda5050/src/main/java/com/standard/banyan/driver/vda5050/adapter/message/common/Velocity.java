@@ -14,6 +14,7 @@ import java.io.Serializable;
 
 /**
  * 速度
+ * @author dingchengfeng
  */
 @Getter
 @Setter

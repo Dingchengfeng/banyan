@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 安全状态
+ * @author dingchengfeng
  */
 @Getter
 @Setter
