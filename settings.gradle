@@ -11,7 +11,7 @@ include 'banyan-component:eventbus-component'
 include 'banyan-component:threadPool-component'
 include 'banyan-component:file-component'
 
-include 'banyan-demo'
+include 'banyan-web'
 
 include 'banyan-driver:banyan-driver-interface'
 include 'banyan-driver:banyan-driver-vda5050'

@@ -8,5 +8,4 @@ dependencies {
     implementation dependLibs.mqttv5Client
     implementation dependLibs.slf4jApi
     implementation project(':banyan-driver:banyan-driver-interface')
-
 }

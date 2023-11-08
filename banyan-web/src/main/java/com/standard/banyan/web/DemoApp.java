@@ -1,4 +1,4 @@
-package com.standard.banyan.demo;
+package com.standard.banyan.web;
 
 
 import lombok.extern.slf4j.Slf4j;

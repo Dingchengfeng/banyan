@@ -1,4 +1,4 @@
-package com.standard.banyan.demo.algo;
+package com.standard.banyan.web.algo;
 
 import Jama.Matrix;
 

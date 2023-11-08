@@ -1,7 +1,7 @@
 package com.standard.banyan.driver.vda5050.adapter.msghandler;
 
 import com.alibaba.fastjson.JSON;
-import com.standard.banyan.driver.amr.MessageHandler;
+import com.standard.banyan.driver.vda5050.mqtt.MessageHandler;
 import com.standard.banyan.driver.vda5050.adapter.message.visualization.Visualization;
 
 /**

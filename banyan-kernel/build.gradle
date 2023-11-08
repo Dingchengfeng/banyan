@@ -3,6 +3,7 @@ dependencies {
     api dependLibs.fastjson
     implementation 'org.springframework:spring-context'
     implementation project(":banyan-driver:banyan-driver-interface")
+    implementation dependLibs.slf4jApi
 
     compileOnly dependLibs.lombok
     annotationProcessor dependLibs.lombok

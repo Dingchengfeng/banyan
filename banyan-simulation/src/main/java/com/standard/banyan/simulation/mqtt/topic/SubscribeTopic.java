@@ -1,10 +1,7 @@
-package com.standard.banyan.driver.vda5050.mqtt.topic;
+package com.standard.banyan.simulation.mqtt.topic;
 
-import com.standard.banyan.driver.vda5050.mqtt.MessageHandler;
-import com.standard.banyan.driver.vda5050.adapter.msghandler.ConnectionMsgHandler;
-import com.standard.banyan.driver.vda5050.adapter.msghandler.FactsheetMsgHandler;
-import com.standard.banyan.driver.vda5050.adapter.msghandler.StateMsgHandler;
-import com.standard.banyan.driver.vda5050.adapter.msghandler.VisualizationMsgHandler;
+import com.standard.banyan.simulation.msghandler.InstantActionsMsgHandler;
+import com.standard.banyan.simulation.msghandler.OrderMsgHandler;
 import lombok.AllArgsConstructor;
 
 /**
@@ -17,23 +14,16 @@ public enum SubscribeTopic implements Topic {
     /**
      * 连接
      */
-    CONNECTION("connection",Qos.AT_LEAST_ONCE,new ConnectionMsgHandler()),
+    ORDER("order",Qos.AT_MOST_ONCE,false,new OrderMsgHandler()),
     /**
      * 模型信息
      */
-    FACTSHEET("factsheet",Qos.AT_MOST_ONCE,new FactsheetMsgHandler()),
-    /**
-     * 状态
-     */
-    STATE("state",Qos.AT_MOST_ONCE,new StateMsgHandler()),
-    /**
-     * 可视化
-     */
-    VISUALIZATION("visualization",Qos.AT_MOST_ONCE,new VisualizationMsgHandler());
+    INSTANT_ACTIONS("instantActions",Qos.AT_MOST_ONCE,false,new InstantActionsMsgHandler());
 
 
     private String topicName;
     private Qos qos;
+    private boolean retained;
     private MessageHandler messageHandler;
 
     public MessageHandler getMessageHandler() {
@@ -48,6 +38,7 @@ public enum SubscribeTopic implements Topic {
         }
         return null;
     }
+
     @Override
     public String getTopicFilter() {
         return String.format(TopicFormat.VDA5050_TOPIC_FORMAT,"+","+",topicName);
@@ -56,5 +47,10 @@ public enum SubscribeTopic implements Topic {
     @Override
     public Qos getQos() {
         return qos;
+    }
+
+    @Override
+    public boolean isRetained() {
+        return retained;
     }
 }

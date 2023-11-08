@@ -2,7 +2,6 @@ package com.standard.banyan.driver.vda5050.adapter;
 
 import com.standard.banyan.driver.amr.CommAdapter;
 import com.standard.banyan.driver.amr.CommAdapterFactory;
-import com.standard.banyan.driver.amr.MessageHandler;
 import com.standard.banyan.driver.amr.domain.AmrInfo;
 import com.standard.banyan.driver.amr.domain.DriverConfig;
 import com.standard.banyan.driver.vda5050.mqtt.DefaultMqttClient;

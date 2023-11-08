@@ -1,5 +1,5 @@
 {
-  "projectName": "allspark",
+  "projectName": "banyan",
   "allInOne": true,
   "isStrict": false,
   "outPath": "src/main/resources/static/doc",
@@ -9,9 +9,9 @@
   "revisionLogs": [
     {
       "version": "1.0",
-      "revisionTime": "2023-01-20 17:38",
+      "revisionTime": "2023-10-20 17:38",
       "status": "create",
-      "author": "段纪刚",
+      "author": "丁成峰",
       "remarks": "初始创建"
     }
   ]

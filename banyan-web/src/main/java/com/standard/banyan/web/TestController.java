@@ -1,4 +1,4 @@
-package com.standard.banyan.demo;
+package com.standard.banyan.web;
 
 import com.standard.banyan.common.i18n.I18nMessageUtil;
 import com.standard.banyan.web.common.ApiResult;
