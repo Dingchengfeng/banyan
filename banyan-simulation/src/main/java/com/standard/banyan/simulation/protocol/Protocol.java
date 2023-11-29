@@ -1,51 +1,37 @@
 package com.standard.banyan.simulation.protocol;
 
+import lombok.Getter;
+
 /**
  * @author dingchengfeng
  * @date 2023/11/14
  */
-public interface Protocol {
-    /**
-     * 协议名称
-     * @return 协议名称
-     */
-    ProtocolName getName();
+@Getter
+public enum Protocol {
+    VDA5050("v","2","0","1");
 
-    /**
-     * 主版本
-     * @return 主版本
-     */
-    String getMajor();
+    Protocol(String versionPrefix,String major, String minor, String patch) {
+        this.versionPrefix = versionPrefix;
+        this.major = major;
+        this.minor = minor;
+        this.patch = patch;
+    }
 
-    /**
-     * 次版本
-     * @return 次版本
-     */
-    String getMinor();
+    private final String versionPrefix;
 
-    /**
-     * 补丁版本
-     * @return 补丁版本
-     */
-    String getPatch();
+    private final String major;
+
+    private final String minor;
+
+    private final String patch;
+
 
     /**
      * 完整版本
      * @return 完整版本
      */
-    String getVersion();
-
-    /**
-     * 版本前缀
-     * @return 版本前缀
-     */
-    String getVersionPrefix();
-
-    /**
-     * @author dingchengfeng
-     * @date 2023/11/14
-     */
-    enum ProtocolName {
-        VDA5050
+    public String getVersion(){
+        return String.join(".", major, minor, patch);
     }
+
 }

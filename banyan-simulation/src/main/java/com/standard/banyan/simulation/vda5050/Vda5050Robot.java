@@ -14,7 +14,6 @@ import com.standard.banyan.simulation.vda5050.mqtt.MessageCallback;
 import com.standard.banyan.simulation.vda5050.msghandler.InstantActionsMsgHandler;
 import com.standard.banyan.simulation.vda5050.msghandler.OrderMsgHandler;
 import com.standard.banyan.simulation.protocol.Protocol;
-import com.standard.banyan.simulation.protocol.Vda5050;
 import com.standard.banyan.simulation.vda5050.entity.common.Velocity;
 import com.standard.banyan.simulation.vda5050.entity.instantactions.InstantActions;
 import com.standard.banyan.simulation.vda5050.entity.order.Edge;
@@ -73,7 +72,7 @@ public class Vda5050Robot implements Robot {
     public Vda5050Robot(DriverConfig driverConfig, String manufacturer, String serialNumber) {
         this.manufacturer = manufacturer;
         this.serialNumber = serialNumber;
-        this.protocol = new Vda5050();
+        this.protocol = Protocol.VDA5050;
 
         this.defaultMqttClient = new DefaultMqttClient(driverConfig.getMqtt().getBrokerUrl(), serialNumber,
             driverConfig.getMqtt().getUsername(), driverConfig.getMqtt().getPassword());
