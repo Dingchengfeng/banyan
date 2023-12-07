@@ -3,10 +3,14 @@ package com.standard.banyan.simulation.vda5050;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
+import com.standard.banyan.common.math.Point2D;
 import com.standard.banyan.common.math.Vector;
+import com.standard.banyan.common.util.BezierUtil;
+import com.standard.banyan.common.util.GenBezierUtil;
 import com.standard.banyan.simulation.DriverConfig;
 import com.standard.banyan.simulation.Robot;
 import com.standard.banyan.simulation.vda5050.entity.common.AgvPosition;
+import com.standard.banyan.simulation.vda5050.entity.common.ControlPoint;
 import com.standard.banyan.simulation.vda5050.entity.connection.Connection;
 import com.standard.banyan.simulation.vda5050.entity.order.Node;
 import com.standard.banyan.simulation.vda5050.mqtt.DefaultMqttClient;
@@ -68,6 +72,8 @@ public class Vda5050Robot implements Robot {
     private Long lastFinishedSequenceId = -1L;
 
     private static final Integer PERIOD = 200;
+
+    private double t = 0;
 
     public Vda5050Robot(DriverConfig driverConfig, String manufacturer, String serialNumber) {
         this.manufacturer = manufacturer;
@@ -348,25 +354,63 @@ public class Vda5050Robot implements Robot {
                 calculateState(leftTime - moveTime);
             }
         } else if (edgeState != null && edgeState.getSequenceId().equals(lastFinishedSequenceId + 1)) {
-            // todo 考虑曲线
             Double nodeX = nodeState.getNodePosition().getX();
             Double nodeY = nodeState.getNodePosition().getY();
-            Double length = Math.hypot(nodeX - x, nodeY - y);
-            double moveTime = length / speed;
+            // todo 考虑曲线
+            if(edgeState.getTrajectory() != null){
+                List<ControlPoint> controlPoints = edgeState.getTrajectory().getControlPoints();
+                List<Point2D<Double>> pointsList = new ArrayList<>();
+                for (ControlPoint controlPoint : controlPoints) {
+                    Double pointX = controlPoint.getX();
+                    Double pointY = controlPoint.getY();
+                    pointsList.add(new Point2D<>(pointX, pointY));
+                }
 
-            if (moveTime >= leftTime) {
-                state.getAgvPosition().setX(
-                    state.getAgvPosition().getX() + speed * leftTime * Math.cos(state.getAgvPosition().getTheta()));
-                state.getAgvPosition().setY(
-                    state.getAgvPosition().getY() + speed * leftTime * Math.sin(state.getAgvPosition().getTheta()));
-                Velocity velocity = new Velocity(speed * Math.cos(theta), speed * Math.sin(theta), 0.0);
-                state.setVelocity(velocity);
-                return;
+                float curveLength = BezierUtil.getCurveLength(pointsList);
+                // 曲线总的运动时间
+                double curveTime = curveLength / speed;
+
+                if (t + PERIOD / 1000D / curveTime >= 1) {
+                    // 走完了
+                    state.getAgvPosition().setX(nodeX);
+                    state.getAgvPosition().setY(nodeY);
+                    state.getAgvPosition().setTheta(nodeState.getNodePosition().getTheta());
+                    lastFinishedSequenceId = edgeState.getSequenceId();
+                    edgeStates.remove(0);
+                    t = 0D;
+                    Velocity velocity = new Velocity(speed * Math.cos(theta), speed * Math.sin(theta), 0.0);
+                    state.setVelocity(velocity);
+                    calculateState(leftTime - curveTime + t);
+                } else {
+                    // 没走完
+                    t = t + PERIOD / 1000D / curveTime;
+
+                    state.getAgvPosition().setX(BezierUtil.getCurvePointX(pointsList, t));
+                    state.getAgvPosition().setY(BezierUtil.getCurvePointY(pointsList, t));
+                    state.getAgvPosition().setTheta(BezierUtil.getTheta(pointsList, t));
+                    Velocity velocity = new Velocity(speed * Math.cos(theta), speed * Math.sin(theta), 0.0);
+                    state.setVelocity(velocity);
+                }
+
             } else {
-                lastFinishedSequenceId = edgeState.getSequenceId();
-                edgeStates.remove(0);
-                calculateState(leftTime - moveTime);
+                Double length = Math.hypot(nodeX - x, nodeY - y);
+                double moveTime = length / speed;
+
+                if (moveTime >= leftTime) {
+                    state.getAgvPosition().setX(
+                        state.getAgvPosition().getX() + speed * leftTime * Math.cos(state.getAgvPosition().getTheta()));
+                    state.getAgvPosition().setY(
+                        state.getAgvPosition().getY() + speed * leftTime * Math.sin(state.getAgvPosition().getTheta()));
+                    Velocity velocity = new Velocity(speed * Math.cos(theta), speed * Math.sin(theta), 0.0);
+                    state.setVelocity(velocity);
+                    return;
+                } else {
+                    lastFinishedSequenceId = edgeState.getSequenceId();
+                    edgeStates.remove(0);
+                    calculateState(leftTime - moveTime);
+                }
             }
+
         }
     }
 
