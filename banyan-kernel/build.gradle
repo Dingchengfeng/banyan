@@ -1,8 +1,11 @@
 dependencies {
     api dependLibs.hutoolCore
     api dependLibs.fastjson
+    api dependLibs.jgraphtCore
     implementation 'org.springframework:spring-context'
     implementation project(":banyan-driver:banyan-driver-interface")
+    api project(':banyan-common')
+
     implementation dependLibs.slf4jApi
 
     compileOnly dependLibs.lombok
